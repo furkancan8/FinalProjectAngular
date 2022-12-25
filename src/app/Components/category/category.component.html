@@ -1,0 +1,9 @@
+<ul class="row" id="category-cap">
+    <!-- <li class="col-1" [class]="getAllCategoryClass()" routerLink="/products">Tüm Ürünler</li> -->
+    <li class="col-1" (click)="setCurrentCategory(category)" *ngFor="let category of categories"
+    routerLink="/products/category/{{category.categoryId}}"
+    [class]="getCurrentCategoryClass(category)">{{category.categoryName}}</li>
+</ul>
+<!-- currentCategory varsa,anlamlı birşey ise çalıştır -->
+<!-- öncelikle ngFor çalışır -->
+
