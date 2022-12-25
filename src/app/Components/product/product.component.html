@@ -1,0 +1,61 @@
+<!-- <div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+<div class="mb-3">
+    ngModel:input tan degişirse,component teki filterText degişir.filterText başka yerden degişirse genede degişir,FormModule dahil et
+     ngModel ile input'u compoent te baglayabiliyoruz
+    <label for="filterText" class="form-label">Ürün Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi girin">
+</div>
+<div *ngIf="filterText" class="alert alert-danger">
+  {{filterText}} aradınız
+</div>
+<table *ngIf="dataLoaded!=false" class="table">
+   <thead>
+    <tr>
+        <th>Id</th>
+        <th>Ürün Adı</th>
+        <th>Kategori</th>
+        <th>Fiyat</th>
+        <th>Kdv'li Fiyat</th>
+        <th>Stok Adedi</th>
+        <th></th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let product of products |filterPipe:">
+        <td>{{product.productId}}</td>
+        <td>{{product.productName |uppercase}}</td>
+        <td>{{product.categoryId}}</td>
+        <td>{{product.unitPrice |currency}}</td>
+        <td>{{product.unitPrice|vatAdded:10|currency }}</td>
+        <td>{{product.unitInStock}}</td>
+        <td><button (click)="addToCard(product)" class="btn btn-success">Sepete ekle</button></td>
+    </tr>
+   </tbody>
+</table> -->
+<div class="latest-products">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Products</h2>
+            <a routerLink="/products">All Products <i class="fa fa-angle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4"*ngFor="let product of products |filterPipe:filterText">
+          <div class="product-item">
+            <div class="down-content">
+              <a href="#"><h4>{{product.productName |uppercase}}</h4></a>
+              <h6>{{product.unitPrice |currency}}</h6>
+              <p>{{product.quantityPerUnit|lowercase}}</p>
+              <ul class="stars">
+                <li><span>Reviews({{product.reviews}})</span></li>
+              </ul>
+              <button (click)="addToCard(product)" class="btn btn-out-dark btn-sm">Sepete ekle</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

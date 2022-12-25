@@ -1,0 +1,31 @@
+<div class="content" id="cap">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h5 class="title">Ürün Ekle</h5></div>
+        <div class="card-body">
+                <!-- componentteki FormGroup'tan geliyor -->
+            <form [formGroup]="productAddForm">
+                <label for="productName">Ürün ismi</label>
+                 <div class="form-group mb-3">
+                    <input type="text" id="productName" formControlName="productName" class="form-control" placeholder="Ürün ismi">
+                 </div>
+                 <label for="categoryId">Kategori</label>
+                 <div class="form-group mb-3">
+                    <input type="number" id="categoryId" [(ngModel)]="categoryvalue" formControlName="categoryId" class="form-control" placeholder="Kategori">
+                 </div>
+                 <label for="unitInStock">ürün stok</label>
+                 <div class="form-group mb-3">
+                    <input type="number" id="unitInStock" formControlName="unitInStock" class="form-control" placeholder="ürün stok">
+                 </div>
+                 <label for="unitPrice">Ürün Fiyatı</label>
+                 <div class="form-group mb-3">
+                    <input type="number" id="unitPrice" formControlName="unitPrice" class="form-control" placeholder="Ürün Fiyatı">
+                 </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <button (click)="add()" class="btn btn-primary">Ekle</button>
+        </div>
+      </div>
+    </div>
+</div>
