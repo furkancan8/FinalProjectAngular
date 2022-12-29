@@ -30,4 +30,9 @@ export class ProductService {
   add(product:Product):Observable<ResponseModel>{
      return this.httpClient.post<ResponseModel>(this.apiUrl+"products/add",product)
   }
+  getProductDetails(productId:number):Observable<ListResponseModel<Product>>
+  {
+    let newPath=this.apiUrl+"products/getbyId?id="+productId;
+    return this.httpClient.get<ListResponseModel<Product>>(newPath);
+  }
 }

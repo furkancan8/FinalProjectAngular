@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { CardService } from 'src/app/services/card.service';
@@ -18,8 +18,9 @@ export class ProductComponent implements OnInit{
   filterText="";
   //acrivateRoute=sitedeki url kısmını temsil eder
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute
-    ,private cartService:CardService){}//private oldugunca sadece bu class ta kullanılabilir,dışardan çagrılamaz
-  ngOnInit(): void {
+    ,private cartService:CardService,private router:Router){}//private oldugunca sadece bu class ta kullanılabilir,dışardan çagrılamaz
+
+    ngOnInit(): void {
     this.activateRoute.params.subscribe(params=>{
       if(params["categoryId"])//params ın içinde categoryId varsa
       {
@@ -29,7 +30,6 @@ export class ProductComponent implements OnInit{
       }
     })//subscribe edilince params ın içine ulaşılabilir oluyor
   }
-
   getProducts(){
     //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır
     this.productService.getProducts().subscribe(response=>{
@@ -46,5 +46,8 @@ export class ProductComponent implements OnInit{
   }
   addToCard(product:Product){
    this.cartService.addToCard(product);
+  }
+  getProductDetails(product:number){
+    this.productService.getProductDetails(product);
   }
 }
