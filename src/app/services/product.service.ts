@@ -4,11 +4,10 @@ import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Product } from '../models/product';
 import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
   apiUrl="https://localhost:44331/api/";
 
@@ -29,5 +28,10 @@ export class ProductService {
   // metodun çalışması için geçerli token ile başvuru yapılmalı
   add(product:Product):Observable<ResponseModel>{
      return this.httpClient.post<ResponseModel>(this.apiUrl+"products/add",product)
+  }
+  getProductDetails(productId:number):Observable<SingleResponseModel<Product>>
+  {
+    let newPath=this.apiUrl+"products/getbyId?id="+productId;
+    return this.httpClient.get<SingleResponseModel<Product>>(newPath);
   }
 }

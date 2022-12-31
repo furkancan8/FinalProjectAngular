@@ -17,6 +17,8 @@ import { ProductAddComponent } from './Components/product-add/product-add.compon
 import { LoginComponent } from './Components/login/login.component';
 import { AuthInterceptor } from './Components/interceptors/auth.interceptor';
 import { CountLimitPipe } from './pipes/count-limit.pipe';
+import { ProductDetailComponent } from './Components/product-detail/product-detail.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 @NgModule({
   //kendi projemizdeki componentler
@@ -31,6 +33,8 @@ import { CountLimitPipe } from './pipes/count-limit.pipe';
     ProductAddComponent,
     LoginComponent,
     CountLimitPipe,
+    ProductDetailComponent,
+    RegisterComponent,
   ],
   //dışardan aldıgımız moduller
   imports: [

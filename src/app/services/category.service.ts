@@ -5,9 +5,7 @@ import { ListResponseModel } from '../models/listResponseModel';
 import { Category } from '../models/category';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CategoryService {
   apiUrl="https://localhost:44331/api/categories/getall";
 
