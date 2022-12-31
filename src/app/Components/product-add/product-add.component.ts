@@ -7,7 +7,8 @@ import { __values } from 'tslib';
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.component.html',
-  styleUrls: ['./product-add.component.css']
+  styleUrls: ['./product-add.component.css'],
+  providers:[ProductService]
 })
 export class ProductAddComponent implements OnInit{
 

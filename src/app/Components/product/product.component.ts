@@ -10,11 +10,12 @@ import { ThisReceiver } from '@angular/compiler';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  providers:[ProductService,CardService]
 })
 export class ProductComponent implements OnInit{
   dataLoaded=false;
-  products:Product[]=[];
+  products:Product[]=[]
   filterText="";
   //acrivateRoute=sitedeki url kısmını temsil eder
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute
@@ -35,6 +36,7 @@ export class ProductComponent implements OnInit{
     this.productService.getProducts().subscribe(response=>{
       this.products=response.data
       this.dataLoaded=true;
+      console.log(response.data)
      })
   }
   getProductsByCategory(categoryId:number){
