@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators,FormBuilder } from "@angular/forms";
+import {  Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit{
   loginForm:FormGroup;
-  constructor(private formbuilder:FormBuilder,private authService:AuthService) {}
+  constructor(private formbuilder:FormBuilder,private authService:AuthService,private route:Router) {}
   ngOnInit(): void {
     this.createloginForm();
   }
@@ -26,12 +27,15 @@ export class LoginComponent implements OnInit{
       this.authService.login(loginModel).subscribe({
         next:(response)=>{
          console.log(response)
-         localStorage.setItem("token",response.data.token)},//tarayıcıya token'i ekler.appications-localstroge
+         localStorage.setItem("token",response.data.token)
+        },//tarayıcıya token'i ekler.appications-localstroge
          error:(errorResponse)=>{
           console.log(errorResponse)
+         },
+         complete:()=>{
+          window.location.replace('http://localhost:4200/products')
          }
-      }
-      )
+      })
     }
   }
 

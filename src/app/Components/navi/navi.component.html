@@ -25,6 +25,15 @@
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact Us</a>
             </li>
+            <li class="nav-item" *ngIf="IsActive">
+              <a class="nav-link" href="contact.html">Hesap</a>
+            </li>
+            <li class="nav-item" *ngIf="IsActive==false">
+              <a class="nav-link"  routerLink="/login">Giriş</a>
+            </li>
+            <li class="nav-item" *ngIf="IsActive==false">
+              <a class="nav-link" routerLink="/register">Kayıt Ol</a>
+            </li>
             <li >
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <app-card-summary></app-card-summary>

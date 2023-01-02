@@ -8,11 +8,10 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginGuard implements CanActivate {
 
-
-  constructor(private authService:AuthService,private router:Router) {//router farklı sayfaya yönlendirmek için kullanılır
+  //router farklı sayfaya yönlendirmek için kullanılır,gidilen adresi söyler//state gidilicek adresi söyler
+  constructor(private authService:AuthService,private router:Router) {
 
   }
-
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

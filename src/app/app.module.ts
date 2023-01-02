@@ -5,20 +5,20 @@ import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './Components/product/product.component';
-import { CategoryComponent } from './Components/category/category.component';
+import { ProductComponent } from './Components/Products/product/product.component';
+import { CategoryComponent } from './Components/Products/category/category.component';
 import { NaviComponent } from './Components/navi/navi.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { CardSummaryComponent } from './Components/card-summary/card-summary.component';
-import { ProductAddComponent } from './Components/product-add/product-add.component';
-import { LoginComponent } from './Components/login/login.component';
+import { ProductAddComponent } from './Components/Products/product-add/product-add.component';
+import { LoginComponent } from './Components/User/login/login.component';
 import { AuthInterceptor } from './Components/interceptors/auth.interceptor';
 import { CountLimitPipe } from './pipes/count-limit.pipe';
-import { ProductDetailComponent } from './Components/product-detail/product-detail.component';
-import { RegisterComponent } from './Components/register/register.component';
+import { ProductDetailComponent } from './Components/Products/product-detail/product-detail.component';
+import { RegisterComponent } from './Components/User/register/register.component';
 
 @NgModule({
   //kendi projemizdeki componentler
