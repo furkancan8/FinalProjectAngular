@@ -1,0 +1,63 @@
+<div class=" content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Ürün Listesi</h4>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>İsim</th>
+                    <th>Açıklama</th>
+                    <th>Stok Adedi</th>
+                    <th class=" text-center">Fiyat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of products">
+                    <td>{{p.productName}}</td>
+                    <td>{{p.quantityPerUnit}}</td>
+                    <td>{{p.unitsInStock}}</td>
+                    <td class=" text-center">{{p.unitPrice}}₺</td>
+                    <td><button routerLink="/update/{{p.productId}}" class="btn btn-success">Güncelle</button></td>
+                    <td><button (click)="deleteProduct()" class="btn btn-danger">Sil</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" col-md-12">
+        <div class=" card card-plain">
+          <div class=" card-header">
+            <h4 class=" card-title">Kategori listesi</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter" id="">
+                <thead class="text-primary">
+                  <tr>
+                    <th>İsim</th>
+                    <th>Açıklama</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of categories">
+                    <td>{{c.categoryName}}</td>
+                    <td>{{c.description}}</td>
+                    <td><button class="btn btn-success">Güncelle</button></td>
+                    <td><button class="btn btn-danger">Sil</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

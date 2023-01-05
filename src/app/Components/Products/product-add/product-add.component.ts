@@ -2,19 +2,20 @@ import { InvokeFunctionExpr } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,FormControl,Validator, Validators } from '@angular/forms';
 import { ResponseModel } from 'src/app/models/responseModel';
+import { AdminService } from 'src/app/services/admin.service';
 import { ProductService } from 'src/app/services/product.service';
 import { __values } from 'tslib';
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.component.html',
   styleUrls: ['./product-add.component.css'],
-  providers:[ProductService]
+  providers:[ProductService,AdminService]
 })
 export class ProductAddComponent implements OnInit{
 
   productAddForm:FormGroup;
   categoryvalue:number;
-  constructor(private formsBuilder:FormBuilder,private productService:ProductService){}
+  constructor(private formsBuilder:FormBuilder,private productService:ProductService,private adminService:AdminService){}
   ngOnInit(): void {
     this.createProductAddForm();
 
