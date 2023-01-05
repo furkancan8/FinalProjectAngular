@@ -4,6 +4,7 @@ import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { CardService } from 'src/app/services/card.service';
 import { ThisReceiver } from '@angular/compiler';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 
@@ -30,13 +31,13 @@ export class ProductComponent implements OnInit{
         this.getProducts()
       }
     })//subscribe edilince params ın içine ulaşılabilir oluyor
+
   }
   getProducts(){
     //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır
     this.productService.getProducts().subscribe(response=>{
       this.products=response.data
       this.dataLoaded=true;
-      console.log(response.data)
      })
   }
   getProductsByCategory(categoryId:number){

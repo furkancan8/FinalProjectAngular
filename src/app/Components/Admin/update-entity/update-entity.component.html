@@ -1,0 +1,7 @@
+<form [formGroup]="productFormGroup">
+ <div *ngFor="let p of product">
+   <label class="form-label">Ürün ismi</label>
+   <input type="text" id="productName" [(ngModel)]="p.productName" class="form-group">
+   <button (click)="updateProduct()">Güncelle</button>
+ </div>
+</form>
