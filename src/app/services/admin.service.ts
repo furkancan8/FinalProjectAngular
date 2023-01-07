@@ -3,14 +3,24 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable()
 export class AdminService {
   apiUrl="https://localhost:44331/api/";
   constructor(private httpClient:HttpClient) { }
 
-  updateProduct(product:Product):Observable<ResponseModel>
+  updateProduct(productId:number,product:Product):Observable<ResponseModel>
   {
-    return this.httpClient.post<ResponseModel>(this.apiUrl+"products/update",product.productId);
+    let newPath=this.apiUrl+"products/update?id="+productId;
+    return this.httpClient.post<ResponseModel>(newPath,product);
   }
+  deleteProduct(productId:number):Observable<ResponseModel>
+  {
+    let newPath=this.apiUrl+"products/delete?id="+productId;
+    return this.httpClient.delete<ResponseModel>(newPath);
+  }
+  addProduct(product:Product):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"products/add",product)
+ }
 }
