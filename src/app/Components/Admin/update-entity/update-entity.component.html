@@ -1,7 +1,15 @@
 <form [formGroup]="productFormGroup">
  <div *ngFor="let p of product">
    <label class="form-label">Ürün ismi</label>
-   <input type="text" id="productName" [(ngModel)]="p.productName" class="form-group">
-   <button (click)="updateProduct()">Güncelle</button>
+   <input type="text" id="productName" formControlName="productName" class="form-group">
+  <label class="form-label">Ürün Stok</label>
+   <input type="number" id="unitsInStock" formControlName="unitsInStock" class="form-group">
+   <label class="form-label">Ürün Fiyat</label>
+   <input type="number" id="unitPrice" formControlName="unitPrice" class="form-group">
+   <label class="form-label">Ürün Açıklama</label>
+   <input type="text" id="quantityPerUnit" formControlName="quantityPerUnit" class="form-group">
+   <button appUpdate [productId]="p.productId" [productFormGroup]="this.productFormGroup" >Güncelle</button>
  </div>
 </form>
+<!-- [(ngModel)]="p.productName"  -->
+<!-- (click)="updateProduct(p.productId)" -->

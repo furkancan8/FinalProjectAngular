@@ -1,0 +1,22 @@
+import { Directive,Input,ElementRef, HostListener } from '@angular/core';
+import { AdminService } from '../services/admin.service';
+
+@Directive({
+  selector: '[appDelete]',
+  providers:[AdminService]
+})
+export class DeleteDirective {
+  //elementRef=directive kullandıgımız html nesnesini getirir
+  //RENDERER =html etiketini manipüle eder
+
+  constructor(private element:ElementRef,private adminService:AdminService) { }
+
+  @Input() productId:number
+  @HostListener("click")//etikete tıklanıldığı zaman aktif olucak
+  onclick()
+  {
+      this.adminService.deleteProduct(this.productId).subscribe(response=>{
+          console.log("silme başarılı")
+     })
+  }
+}

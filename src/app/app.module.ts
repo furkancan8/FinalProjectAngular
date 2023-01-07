@@ -13,7 +13,7 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { CardSummaryComponent } from './Components/card-summary/card-summary.component';
-import { ProductAddComponent } from './Components/Products/product-add/product-add.component';
+import { ProductAddComponent } from './Components/Admin/product-add/product-add.component';
 import { LoginComponent } from './Components/User/login/login.component';
 import { AuthInterceptor } from './Components/interceptors/auth.interceptor';
 import { CountLimitPipe } from './pipes/count-limit.pipe';
@@ -21,6 +21,10 @@ import { ProductDetailComponent } from './Components/Products/product-detail/pro
 import { RegisterComponent } from './Components/User/register/register.component';
 import { AdminComponent } from './Components/Admin/admin/admin.component';
 import { UpdateEntityComponent } from './Components/Admin/update-entity/update-entity.component';
+import { DeleteDirective } from './directive/delete.directive';
+import { UpdateDirective } from './directive/update.directive';
+import { AddDirective } from './directive/add.directive';
+import { ContactComponent } from './Components/contact/contact.component';
 
 @NgModule({
   //kendi projemizdeki componentler
@@ -39,6 +43,10 @@ import { UpdateEntityComponent } from './Components/Admin/update-entity/update-e
     RegisterComponent,
     AdminComponent,
     UpdateEntityComponent,
+    DeleteDirective,
+    UpdateDirective,
+    AddDirective,
+    ContactComponent
   ],
   //dışardan aldıgımız moduller
   imports: [

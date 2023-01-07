@@ -15,16 +15,9 @@ export class NaviComponent implements OnInit{
    }
   ngOnInit(): void {
     this.IsUser()
-    console.log("navbar çalıştı");
-    //  if(this.authService.isAuthenticate()){
-    //    this.IsActive=this.authService.IsActivee();
-    //   }else{
-    //    this.IsActive=false;
-    //   }
   }
   IsUser(){
     if(this.authService.isAuthenticate()){
-       console.log("Giriş ");
        this.IsActive=true;
     }
   }

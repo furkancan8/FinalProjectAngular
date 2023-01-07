@@ -14,9 +14,10 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class UpdateEntityComponent implements OnInit {
    product:Product[]=[]
-   category:Category[]=[]
+
    productFormGroup:FormGroup;
-  constructor(private adminService:AdminService,private activeRoute:ActivatedRoute,private productService:ProductService,private formBuilder:FormBuilder) {
+  constructor(private adminService:AdminService,private activeRoute:ActivatedRoute,
+    private productService:ProductService,private formBuilder:FormBuilder) {
 
   }
   ngOnInit(): void {
@@ -27,28 +28,35 @@ export class UpdateEntityComponent implements OnInit {
     }else{
       console.log("hata ula");
     }})
+
    this.createProductForm();
   }
+
   getProductDetails(entityId:number)
   {
     this.productService.getProductDetails(entityId).subscribe(response=>{
       this.product.push(response.data)
     })
   }
+
   createProductForm()
   {
     this.productFormGroup=this.formBuilder.group({
-      productName:["",Validators.required]
+      productName:["",Validators.required],
+       unitsInStock:["",Validators.required],
+       unitPrice:["",Validators.required],
+       quantityPerUnit:["",Validators.required]
     })
   }
-  updateProduct()
+
+  updateProduct(productId:number)
   {
     if(this.productFormGroup.valid)
     {
       let productModel=Object.assign({},this.productFormGroup.value)
-      this.adminService.updateProduct(productModel).subscribe(response=>{
+      this.adminService.updateProduct(productId,productModel).subscribe(response=>{
           console.log(response.success)
-          console.log(response.message)
+
       })
     }
   }
