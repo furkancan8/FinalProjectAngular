@@ -9,14 +9,15 @@ import { AdminService } from '../services/admin.service';
 })
 export class AddDirective {
 
-  constructor(private adminService:AdminService) { }
+  constructor(private adminService:AdminService) {}
   @Input() productAddForm:FormGroup;
-  @HostListener("click")
+  @Input() entity:string;
+   @HostListener("click")
   add(){
     //value obje şeklinde çalışır bütün degerleri verir
     //form yolunu not al
     //response sadece veri döndürüyor meesage için tip
-    if(this.productAddForm.valid)
+    if(this.entity=="product")
     {
       let productModel=Object.assign({},this.productAddForm.value);
        this.adminService.addProduct(productModel).subscribe({
@@ -28,8 +29,18 @@ export class AddDirective {
       //   }
       // }
       });
-    }else{
-      console.log("formunuz eksik")
-    }
+    }else if(this.entity=="category")
+    {
+      let productModel=Object.assign({},this.productAddForm.value);
+      this.adminService.addProduct(productModel).subscribe({
+       next:(response:ResponseModel)=>{
+        console.log(response.success)},
+     //   error:(responseError)=>{
+     //   if(responseError.error.Errors.lenght>0){
+     //     console.log(responseError.error.Errors)
+     //   }
+     // }
+    });
   }
+ }
 }

@@ -25,6 +25,7 @@ import { DeleteDirective } from './directive/delete.directive';
 import { UpdateDirective } from './directive/update.directive';
 import { AddDirective } from './directive/add.directive';
 import { ContactComponent } from './Components/contact/contact.component';
+import { BasketComponent } from './Components/Navbar/basket/basket.component';
 
 @NgModule({
   //kendi projemizdeki componentler
@@ -46,7 +47,8 @@ import { ContactComponent } from './Components/contact/contact.component';
     DeleteDirective,
     UpdateDirective,
     AddDirective,
-    ContactComponent
+    ContactComponent,
+    BasketComponent
   ],
   //dışardan aldıgımız moduller
   imports: [

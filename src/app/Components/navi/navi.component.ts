@@ -21,4 +21,11 @@ export class NaviComponent implements OnInit{
        this.IsActive=true;
     }
   }
+  ExitUser()
+  {
+    if(this.authService.isAuthenticate()){
+       localStorage.removeItem("token");
+       window.location.replace('http://localhost:4200/products')
+   }
+  }
 }

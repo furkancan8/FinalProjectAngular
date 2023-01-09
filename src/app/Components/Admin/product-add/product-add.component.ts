@@ -14,10 +14,14 @@ export class ProductAddComponent implements OnInit{
 
   productAddForm:FormGroup;
   categoryvalue:number;
-  constructor(private formsBuilder:FormBuilder){}
+  constructor(private formsBuilder:FormBuilder)
+  {
+
+  }
   ngOnInit(): void {
     this.createProductAddForm();
   }
+
   createProductAddForm(){
    this.productAddForm=this.formsBuilder.group({
     productName:["",Validators.required],

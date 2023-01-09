@@ -8,7 +8,7 @@
    <input type="number" id="unitPrice" formControlName="unitPrice" class="form-group">
    <label class="form-label">Ürün Açıklama</label>
    <input type="text" id="quantityPerUnit" formControlName="quantityPerUnit" class="form-group">
-   <button appUpdate [productId]="p.productId" [productFormGroup]="this.productFormGroup" >Güncelle</button>
+   <button appUpdate [productId]="p.productId"[entity]="'product'" [productFormGroup]="this.productFormGroup" >Güncelle</button>
  </div>
 </form>
 <!-- [(ngModel)]="p.productName"  -->

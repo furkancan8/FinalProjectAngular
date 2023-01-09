@@ -10,6 +10,7 @@ import { NaviComponent } from './Components/navi/navi.component';
 import { AdminComponent } from './Components/Admin/admin/admin.component';
 import { UpdateEntityComponent } from './Components/Admin/update-entity/update-entity.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { BasketComponent } from './Components/Navbar/basket/basket.component';
 //dizideki routler tanımlanır
 const routes: Routes = [
   {path:"",pathMatch:"full",component:ProductComponent},//pathmatch=anasayfa için verilir
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:"admin",component:AdminComponent},
   {path:"delete/:productId",component:AdminComponent},
   {path:"update/:productId",component:UpdateEntityComponent},
-  {path:"update/:categoryId",component:UpdateEntityComponent}
+  {path:"update/:categoryId",component:UpdateEntityComponent},
+  {path:"basket",component:BasketComponent}
 
 ];
 //projeye dahil edilir

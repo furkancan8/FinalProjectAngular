@@ -3,10 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { ResponseModel } from '../models/responseModel';
-import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable()
-export class AdminService {
+export class AdminService{
   apiUrl="https://localhost:44331/api/";
   constructor(private httpClient:HttpClient) { }
 

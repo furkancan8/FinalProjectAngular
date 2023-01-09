@@ -21,13 +21,12 @@ export class LoginComponent implements OnInit{
   }
   login(){
     if(this.loginForm.valid){
-      console.log(this.loginForm.value);
       let loginModel=Object.assign({},this.loginForm.value)
 
       this.authService.login(loginModel).subscribe({
         next:(response)=>{
-         console.log(response)
          localStorage.setItem("token",response.data.token)
+         console.log(response.data)
         },//tarayıcıya token'i ekler.appications-localstroge
          error:(errorResponse)=>{
           console.log(errorResponse)
