@@ -11,15 +11,21 @@ export class UpdateDirective {
   constructor(private adminService:AdminService) { }
   @Input() productId:number
   @Input() productFormGroup:FormGroup
+  @Input() entity:string;
   @HostListener("click")
   updateProduct()
   {
-     if(this.productFormGroup.valid)
+     if(this.entity="product")
      {
        let productModel=Object.assign({},this.productFormGroup.value)
        this.adminService.updateProduct(this.productId,productModel).subscribe(response=>{
            console.log(response.success)
        })
-     }
+     }else if(this.entity="category"){
+        let productModel=Object.assign({},this.productFormGroup.value)
+        this.adminService.updateProduct(this.productId,productModel).subscribe(response=>{
+        console.log(response.success)
+     })
   }
+}
 }

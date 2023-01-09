@@ -12,11 +12,20 @@ export class DeleteDirective {
   constructor(private element:ElementRef,private adminService:AdminService) { }
 
   @Input() productId:number
+  @Input() entity:string;
   @HostListener("click")//etikete tıklanıldığı zaman aktif olucak
   onclick()
   {
-      this.adminService.deleteProduct(this.productId).subscribe(response=>{
+      if(this.entity="product")
+      {
+        this.adminService.deleteProduct(this.productId).subscribe(response=>{
           console.log("silme başarılı")
-     })
+        })
+      }else if(this.entity="category")
+      {
+        this.adminService.deleteProduct(this.productId).subscribe(response=>{
+          console.log("silme başarılı")
+        })
+      }
   }
 }
