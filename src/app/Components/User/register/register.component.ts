@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit{
         this.router.navigate(["login"])
        },
        error:(resnpose)=>{
-        console.log("hata");
+        console.log(resnpose);
        }
       })
     }

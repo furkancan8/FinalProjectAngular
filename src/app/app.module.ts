@@ -26,6 +26,7 @@ import { UpdateDirective } from './directive/update.directive';
 import { AddDirective } from './directive/add.directive';
 import { ContactComponent } from './Components/contact/contact.component';
 import { BasketComponent } from './Components/Navbar/basket/basket.component';
+import { UserInfoComponent } from './Components/User/user-info/user-info.component';
 
 @NgModule({
   //kendi projemizdeki componentler
@@ -48,7 +49,8 @@ import { BasketComponent } from './Components/Navbar/basket/basket.component';
     UpdateDirective,
     AddDirective,
     ContactComponent,
-    BasketComponent
+    BasketComponent,
+    UserInfoComponent
   ],
   //dışardan aldıgımız moduller
   imports: [

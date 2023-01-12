@@ -11,6 +11,7 @@ import { AdminComponent } from './Components/Admin/admin/admin.component';
 import { UpdateEntityComponent } from './Components/Admin/update-entity/update-entity.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { BasketComponent } from './Components/Navbar/basket/basket.component';
+import { UserInfoComponent } from './Components/User/user-info/user-info.component';
 //dizideki routler tanımlanır
 const routes: Routes = [
   {path:"",pathMatch:"full",component:ProductComponent},//pathmatch=anasayfa için verilir
@@ -25,7 +26,9 @@ const routes: Routes = [
   {path:"delete/:productId",component:AdminComponent},
   {path:"update/:productId",component:UpdateEntityComponent},
   {path:"update/:categoryId",component:UpdateEntityComponent},
-  {path:"basket",component:BasketComponent}
+  {path:"basket",component:BasketComponent},
+  {path:"userInfo/:userId",component:UserInfoComponent},
+  {path:"userInfo",component:UserInfoComponent}
 
 ];
 //projeye dahil edilir

@@ -6,15 +6,15 @@
           <input type="email"
           formControlName="email"
            class="form-control"
-           id="floatingInput"
-           placeholder="name@example.com">
+           id="eposta"
+           placeholder="name@example.com" #email>
           <label for="floatingInput">E-posta</label>
         </div>
         <div class="form-floating">
           <input type="password"
           formControlName="password"
            class="form-control"
-            id="floatingPassword"
+            id="password"
              placeholder="Password">
           <label for="floatingPassword">Şifre</label>
         </div>
@@ -24,6 +24,9 @@
             <input type="checkbox" value="remember-me">Remember me
           </label>
         </div>
-        <button (click)="login()" class="w-100 btn btn-lg btn-primary">Giriş yap</button>
+        <div>
+        <button (click)="login(email.value)" class="w-100 btn btn-lg btn-primary">Giriş yap</button>
+        <button (click)="getUser(email.value)" class="w-100 btn btn-lg btn-primary">Giriş yap</button>
+      </div>
       </form>
     </main>
