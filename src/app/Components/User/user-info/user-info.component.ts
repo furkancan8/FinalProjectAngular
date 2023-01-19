@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-info',
@@ -11,7 +12,7 @@ export class UserInfoComponent implements OnInit{
   id=localStorage.getItem(('i_u'))
   userId=parseInt(this.id)
   UserDetails:User[]=[]
-   constructor(private authService:AuthService) {
+   constructor(private userService:UserService) {
 
    }
    ngOnInit(): void {
@@ -19,9 +20,8 @@ export class UserInfoComponent implements OnInit{
    }
    getUserDetail()
    {
-    this.authService.getbyId(this.userId).subscribe(res=>{
+    this.userService.getbyId(this.userId).subscribe(res=>{
      this.UserDetails.push(res.data)
-     console.log(res.data)
     })
    }
 }

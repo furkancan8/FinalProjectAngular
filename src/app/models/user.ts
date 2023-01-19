@@ -5,5 +5,6 @@ export interface User{
   email:string,
   number:string,
   gender:number,
-  dateOfBirth:Date
+  dateOfBirth:Date,
+  address:string
 }

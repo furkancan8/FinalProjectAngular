@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category';
+import { SideCategory } from 'src/app/models/sideCateogry';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { CategoryService } from 'src/app/services/category.service';
 export class CategoryComponent implements OnInit{
   //html in kullanıcak oldugu data tutucular
   categories:Category[]=[];
+  sideCategories:SideCategory[]=[]
   //strict özelligini devre dışı bırakıp interface yapısını kullandık.
   currentCategory:Category;
   constructor(private categoryService:CategoryService){
@@ -18,6 +20,7 @@ export class CategoryComponent implements OnInit{
   }
   ngOnInit(): void {
    this.getCategories();
+   this.getSideCategory(2);
   }
   getCategories(){
     this.categoryService.getCategories().subscribe(response=>{
@@ -45,5 +48,10 @@ export class CategoryComponent implements OnInit{
     }else{
       return "list-group-item"
     }
+  }
+  getSideCategory(categoryId:number){
+    this.categoryService.getSideCategory(categoryId).subscribe(res=>{
+      this.sideCategories=res.data
+    })
   }
 }

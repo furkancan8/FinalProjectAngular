@@ -2,6 +2,8 @@ import { Directive, HostListener, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ResponseModel } from '../models/responseModel';
 import { AdminService } from '../services/admin.service';
+import { ContactService } from '../services/contact.service';
+import { OperationclaimService } from '../services/operationclaim.service';
 
 @Directive({
   selector: '[appAdd]',
@@ -9,8 +11,9 @@ import { AdminService } from '../services/admin.service';
 })
 export class AddDirective {
 
-  constructor(private adminService:AdminService) {}
-  @Input() productAddForm:FormGroup;
+  constructor(private adminService:AdminService,private operationClaimService:OperationclaimService,private contactService:ContactService
+  ) {}
+  @Input() entityAddForm:FormGroup;
   @Input() entity:string;
    @HostListener("click")
   add(){
@@ -19,8 +22,8 @@ export class AddDirective {
     //response sadece veri döndürüyor meesage için tip
     if(this.entity=="product")
     {
-      let productModel=Object.assign({},this.productAddForm.value);
-       this.adminService.addProduct(productModel).subscribe({
+      let entityModel=Object.assign({},this.entityAddForm.value);
+       this.adminService.addProduct(entityModel).subscribe({
         next:(response:ResponseModel)=>{
          console.log(response.success)},
       //   error:(responseError)=>{
@@ -31,8 +34,8 @@ export class AddDirective {
       });
     }else if(this.entity=="category")
     {
-      let productModel=Object.assign({},this.productAddForm.value);
-      this.adminService.addProduct(productModel).subscribe({
+      let entityModel=Object.assign({},this.entityAddForm.value);
+      this.adminService.addProduct(entityModel).subscribe({
        next:(response:ResponseModel)=>{
         console.log(response.success)},
      //   error:(responseError)=>{
@@ -41,6 +44,18 @@ export class AddDirective {
      //   }
      // }
     });
+  }else if(this.entity=="claim")
+  {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.operationClaimService.cliamAdd(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
+  }else if(this.entity=="contact")
+  {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.contactService.addContact(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
   }
  }
 }

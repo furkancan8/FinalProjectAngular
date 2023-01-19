@@ -6,12 +6,13 @@ import { ProductDetailComponent } from './Components/Products/product-detail/pro
 import { ProductComponent } from './Components/Products/product/product.component';
 import { RegisterComponent } from './Components/User/register/register.component';
 import { LoginGuard } from './guards/login.guard';
-import { NaviComponent } from './Components/navi/navi.component';
+import { NaviComponent } from './Components/Navbar/navi/navi.component';
 import { AdminComponent } from './Components/Admin/admin/admin.component';
 import { UpdateEntityComponent } from './Components/Admin/update-entity/update-entity.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { BasketComponent } from './Components/Navbar/basket/basket.component';
 import { UserInfoComponent } from './Components/User/user-info/user-info.component';
+import { UserOrdersComponent } from './Components/User/user-orders/user-orders.component';
 //dizideki routler tanımlanır
 const routes: Routes = [
   {path:"",pathMatch:"full",component:ProductComponent},//pathmatch=anasayfa için verilir
@@ -27,8 +28,8 @@ const routes: Routes = [
   {path:"update/:productId",component:UpdateEntityComponent},
   {path:"update/:categoryId",component:UpdateEntityComponent},
   {path:"basket",component:BasketComponent},
-  {path:"userInfo/:userId",component:UserInfoComponent},
-  {path:"userInfo",component:UserInfoComponent}
+  {path:"userInfo",component:UserInfoComponent},
+  {path:"userOrder",component:UserOrdersComponent}
 
 ];
 //projeye dahil edilir

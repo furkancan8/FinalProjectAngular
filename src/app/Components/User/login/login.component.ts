@@ -2,6 +2,7 @@ import { Component, Input, OnInit, resolveForwardRef } from '@angular/core';
 import { FormGroup,FormControl,Validators,FormBuilder } from "@angular/forms";
 import {  Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit{
   loginForm:FormGroup;
   userId:string;
   id = localStorage.getItem("i_u");
-  constructor(private formbuilder:FormBuilder,private authService:AuthService,private route:Router) {}
+  constructor(private formbuilder:FormBuilder,private authService:AuthService,private route:Router,private userService:UserService) {}
   ngOnInit(): void {
     this.createloginForm();
   }
@@ -39,19 +40,7 @@ export class LoginComponent implements OnInit{
       })
     }
 
-    this.authService.getUser(email).subscribe({
-      next:(res)=>{
-        if(res.data.id)
-        {
-          this.userId=res.data.id.toString();
-        }
-        localStorage.setItem("i_u",this.userId)
-      }
-    })
-  }
-  getUser(email:string)
-  {
-    this.authService.getUser(email).subscribe({
+    this.userService.getUser(email).subscribe({
       next:(res)=>{
         if(res.data.id)
         {

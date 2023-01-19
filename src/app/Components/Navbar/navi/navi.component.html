@@ -28,6 +28,8 @@
             <li class="nav-item dropdown" *ngIf="IsActive">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >Hesap</a>
               <ul class="dropdown-menu">
+                  <li><button  routerLink="/userInfo">Kullanıcı Bilgileri</button></li>
+                  <li><button  routerLink="/userOrder">Siparişlerim</button></li>
                   <li><button  (click)="ExitUser()">Çıkış yap</button></li>
               </ul>
             </li>

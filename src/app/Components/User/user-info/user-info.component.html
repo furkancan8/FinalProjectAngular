@@ -3,5 +3,9 @@
     <li>isim:{{p.firstName}}</li>
     <li>soyisim:{{p.lastName}}</li>
     <li>email:{{p.email}}</li>
+    <li *ngIf="p.gender==1">gender:Erkek</li>
+    <li *ngIf="p.gender==0">gender:Kadın</li>
+    <li>number:{{p.number}}</li>
     <li>tarih:{{p.dateOfBirth}}</li>
+    <li>adres:{{p.address}}</li>
 </ul>
