@@ -1,9 +1,5 @@
-import { InvokeFunctionExpr } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,FormControl,Validator, Validators } from '@angular/forms';
-import { ResponseModel } from 'src/app/models/responseModel';
-import { AdminService } from 'src/app/services/admin.service';
-import { ProductService } from 'src/app/services/product.service';
 import { __values } from 'tslib';
 @Component({
   selector: 'app-product-add',

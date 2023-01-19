@@ -21,16 +21,6 @@ export class AuthService {
   {
      return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
   }
-  getUser(email:string):Observable<SingleResponseModel<User>>
-  {
-    let newPath=this.apiUrl+"getuser?userMail="+email;
-    return this.httpClient.get<SingleResponseModel<User>>(newPath)
-  }
-  getbyId(userId:number):Observable<SingleResponseModel<User>>
-  {
-    var newPath=this.apiUrl+"getbyid?userId="+userId;
-    return this.httpClient.get<SingleResponseModel<User>>(newPath)
-  }
   isAuthenticate(){
     //sayfa yenilendiginide token bilgisi kaybolmasın diye tarayıcıda tutulucak
     if(localStorage.getItem("token")){

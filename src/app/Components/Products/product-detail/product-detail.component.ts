@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { toArray } from 'rxjs';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
 import { Product } from 'src/app/models/product';
+import { CommentService } from 'src/app/services/comment.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -14,19 +15,24 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailComponent implements OnInit{
   products:Product[]=[]
-  constructor(private route:ActivatedRoute,private productservice:ProductService) {
+  constructor(private route:ActivatedRoute,private productservice:ProductService,private commentService:CommentService) {
 
   }
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
       this.getProductDetails(params["productId"])
     })
-
   }
 
   getProductDetails(productId:number){
     this.productservice.getProductDetails(productId).subscribe(response=>{
       this.products.push(response.data)
+    })
+  }
+  getProductOfComment()
+  {
+    this.commentService.getProductOfComment(1).subscribe(res=>{
+      console.log(res.data)
     })
   }
 }

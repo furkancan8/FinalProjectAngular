@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { ProductComponent } from '../Products/product/product.component';
+import { ProductComponent } from '../../Products/product/product.component';
 
 @Component({
   selector: 'app-navi',
@@ -10,6 +10,7 @@ import { ProductComponent } from '../Products/product/product.component';
 export class NaviComponent implements OnInit{
   filterText="";
   IsActive:boolean=false;
+  userId=localStorage.getItem("u_i");
   constructor(private authService:AuthService) {
 
    }

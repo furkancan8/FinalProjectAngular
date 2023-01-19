@@ -17,6 +17,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ProductComponent implements OnInit{
   dataLoaded=false;
   products:Product[]=[]
+  productsPop:Product[]=[]
   filterText="";
   //acrivateRoute=sitedeki url kısmını temsil eder
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute
@@ -31,7 +32,7 @@ export class ProductComponent implements OnInit{
         this.getProducts()
       }
     })//subscribe edilince params ın içine ulaşılabilir oluyor
-
+    this.getPopProductFirstTen();
   }
   getProducts(){
     //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır
@@ -52,5 +53,11 @@ export class ProductComponent implements OnInit{
   }
   getProductDetails(product:number){
     this.productService.getProductDetails(product);
+  }
+  getPopProductFirstTen()
+  {
+    this.productService.getPopProductFirstTen().subscribe(res=>{
+    this.productsPop=res.data
+    })
   }
 }

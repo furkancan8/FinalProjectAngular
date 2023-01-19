@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './Components/Products/product/product.component';
 import { CategoryComponent } from './Components/Products/category/category.component';
-import { NaviComponent } from './Components/navi/navi.component';
+import { NaviComponent } from './Components/Navbar/navi/navi.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
@@ -27,6 +27,7 @@ import { AddDirective } from './directive/add.directive';
 import { ContactComponent } from './Components/contact/contact.component';
 import { BasketComponent } from './Components/Navbar/basket/basket.component';
 import { UserInfoComponent } from './Components/User/user-info/user-info.component';
+import { UserOrdersComponent } from './Components/User/user-orders/user-orders.component';
 
 @NgModule({
   //kendi projemizdeki componentler
@@ -50,7 +51,8 @@ import { UserInfoComponent } from './Components/User/user-info/user-info.compone
     AddDirective,
     ContactComponent,
     BasketComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    UserOrdersComponent
   ],
   //dışardan aldıgımız moduller
   imports: [
