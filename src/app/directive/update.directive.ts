@@ -1,6 +1,6 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AdminService } from '../services/admin.service';
+import { AdminService } from '../services/User/admin.service';
 
 @Directive({
   selector: '[appUpdate]',

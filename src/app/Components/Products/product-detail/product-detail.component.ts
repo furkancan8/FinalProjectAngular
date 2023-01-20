@@ -3,9 +3,9 @@ import { Component,OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { toArray } from 'rxjs';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
-import { Product } from 'src/app/models/product';
-import { CommentService } from 'src/app/services/comment.service';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/models/Product/product';
+import { CommentService } from 'src/app/services/Product/comment.service';
+import { ProductService } from 'src/app/services/Product/product.service';
 
 @Component({
   selector: 'app-product-detail',

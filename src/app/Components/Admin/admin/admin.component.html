@@ -121,11 +121,14 @@
           <input type="number" id="userId" formControlName="userId" class="form-control" placeholder="Ürün ismi">
        </div>
        <div class="form-group mb-3">
-        <input type="number" id="operationClaimId" formControlName="operationClaimId" class="form-control" placeholder="Ürün ismi">
+        <select type="number" id="" formControlName="operationClaimId">
+          <!-- <input type="number" id="operationClaimId" formControlName="operationClaimId" class="form-control" placeholder="Ürün ismi"> -->
+          <option *ngFor="let o of operationClaim" [value]="o.id">{{o.name}}</option>
+        </select>
        </div>
       </form>
       <div class="card-footer">
-        <button appAdd [entityAddForm]="this.cliamAddForm" [entity]="'claim'" class="btn btn-primary">Ekle</button>
+        <button (click)="click()" appAdd [entityAddForm]="this.cliamAddForm" [entity]="'claim'" class="btn btn-primary">Ekle</button>
     </div>
     </div>
   </div>

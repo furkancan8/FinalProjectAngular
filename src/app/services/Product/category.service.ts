@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ListResponseModel } from '../models/listResponseModel';
-import { Category } from '../models/category';
-import { SideCategory } from '../models/sideCateogry';
+import { ListResponseModel } from '../../models/listResponseModel';
+import { Category } from '../../models/Product/category';
+import { SideCategory } from '../../models/Product/sideCateogry';
 
 
 @Injectable()

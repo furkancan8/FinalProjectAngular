@@ -1,5 +1,4 @@
-
-<ul *ngFor="let p of UserDetails">
+ <ul *ngFor="let p of UserDetails">
     <li>isim:{{p.firstName}}</li>
     <li>soyisim:{{p.lastName}}</li>
     <li>email:{{p.email}}</li>
@@ -8,4 +7,15 @@
     <li>number:{{p.number}}</li>
     <li>tarih:{{p.dateOfBirth}}</li>
     <li>adres:{{p.address}}</li>
+
+</ul>
+
+<ul>
+    <select [(ngModel)]="cityId" name="" id="">
+        <option  *ngFor="let c of City" value="{{c.id}}">{{c.name}}</option>
+    </select>
+    {{this.cityId}}
+    <select *ngIf="cityId" name="" id="">
+        <option  *ngFor="let d of District">{{d.districtName}}</option>
+    </select>
 </ul>
