@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ListResponseModel } from '../models/listResponseModel';
-import { SingleResponseModel } from '../models/singleResponseModel';
-import { User } from '../models/user';
+import { City } from '../../models/User/city';
+import { District } from '../../models/User/district';
+import { ListResponseModel } from '../../models/listResponseModel';
+import { SingleResponseModel } from '../../models/singleResponseModel';
+import { User } from '../../models/User/user';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +29,15 @@ export class UserService {
     var newPath=this.apiUrl+"getbyiduser?userId="+userId;
     return this.httpClient.get<SingleResponseModel<User>>(newPath)
   }
-  getAllCity()//ŞEHİRLER
+  getAllCity():Observable<ListResponseModel<City>>
   {
    var newPath=this.apiUrl+"getallcity";
-   return this.httpClient.get(newPath)
+   return this.httpClient.get<ListResponseModel<City>>(newPath)
+  }
+  getCityofDistrict(cityId:number):Observable<ListResponseModel<District>>
+  {
+    var newPath=this.apiUrl+"getdistrictofcity?cityId="+cityId;
+    return this.httpClient.get<ListResponseModel<District>>(newPath)
   }
   getAllFavoriteUser(userId:number)
   {

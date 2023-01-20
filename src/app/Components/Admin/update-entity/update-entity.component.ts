@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Category } from 'src/app/models/category';
-import { Product } from 'src/app/models/product';
-import { AdminService } from 'src/app/services/admin.service';
-import { ProductService } from 'src/app/services/product.service';
+import { Category } from 'src/app/models/Product/category';
+import { Product } from 'src/app/models/Product/product';
+import { AdminService } from 'src/app/services/User/admin.service';
+import { ProductService } from 'src/app/services/Product/product.service';
 
 @Component({
   selector: 'app-update-entity',

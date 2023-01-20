@@ -1,9 +1,9 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ResponseModel } from '../models/responseModel';
-import { AdminService } from '../services/admin.service';
-import { ContactService } from '../services/contact.service';
-import { OperationclaimService } from '../services/operationclaim.service';
+import { AdminService } from '../services/User/admin.service';
+import { ContactService } from '../services/User/contact.service';
+import { OperationclaimService } from '../services/User/operationclaim.service';
 
 @Directive({
   selector: '[appAdd]',

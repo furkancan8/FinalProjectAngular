@@ -1,5 +1,5 @@
 import { Directive,Input,ElementRef, HostListener } from '@angular/core';
-import { AdminService } from '../services/admin.service';
+import { AdminService } from '../services/User/admin.service';
 
 @Directive({
   selector: '[appDelete]',

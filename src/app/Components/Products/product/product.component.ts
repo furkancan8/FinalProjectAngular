@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
-import { CardService } from 'src/app/services/card.service';
+import { Product } from 'src/app/models/Product/product';
+import { ProductService } from 'src/app/services/Product/product.service';
+import { CardService } from 'src/app/services/Product/card.service';
 import { ThisReceiver } from '@angular/compiler';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/User/auth.service';
 
 
 
