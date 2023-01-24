@@ -6,4 +6,5 @@ export interface Product{
     unitPrice:number;
     quantityPerUnit:string;
     reviews:number;
+    image:string;
 }

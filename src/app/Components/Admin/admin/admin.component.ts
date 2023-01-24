@@ -73,10 +73,4 @@ export class AdminComponent implements OnInit{
   this.operationClaim=res.data
   })
  }
- click(){
-  console.log(this.cliamAddForm.value)
- }
- Number(opId:any){
-  return parseInt(opId);
- }
 }

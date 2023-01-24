@@ -20,7 +20,7 @@ export class CategoryComponent implements OnInit{
   }
   ngOnInit(): void {
    this.getCategories();
-   this.getSideCategory(2);
+  //  this.getSideCategory(2);
   }
   getCategories(){
     this.categoryService.getCategories().subscribe(response=>{

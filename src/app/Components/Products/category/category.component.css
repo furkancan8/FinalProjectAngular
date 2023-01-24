@@ -1,13 +1,26 @@
 #category-cap{
+ border-bottom: 1px solid rgb(217, 217, 217);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top:10px;
+}
+#category-cap_ul{
     --bs-gutter-x:0!important;
-    padding-left:2rem!important;
-    margin-left:12rem;
-    margin-top:1rem;
-    margin-bottom:1rem;
+  margin-left: 20px;
+  padding-top:7px ;
+  padding-bottom:7px ;
 }
-#category-cap li{
-   margin-left:25px;
+#category-cap_ul li{
+   margin-left:30px;
 }
-#category-cap li:hover{
-    color:gray;
+#category-cap_ul li:hover{
+    color:rgb(123, 122, 122);
  }
+.category{
+  width: auto;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+ul{
+  font-weight: 600;
+}

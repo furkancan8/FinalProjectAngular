@@ -1,9 +1,16 @@
-<ul class="row" id="category-cap">
+<div id="category-cap">
+<ul class="row" id="category-cap_ul">
     <!-- <li class="col-1" [class]="getAllCategoryClass()" routerLink="/products">Tüm Ürünler</li> -->
-    <li class="col-1" (click)="setCurrentCategory(category)" *ngFor="let category of categories"
+    <li class="category" (click)="setCurrentCategory(category);getSideCategory(category.categoryId)" *ngFor="let category of categories"
     routerLink="/products/category/{{category.categoryId}}"
     [class]="getCurrentCategoryClass(category)">{{category.categoryName}}</li>
 </ul>
+<ul class="row ">
+   <li class="col-1" *ngFor="let s of sideCategories">
+      {{s.sCategoryName}}
+   </li>
+</ul>
+</div>
 <!-- currentCategory varsa,anlamlı birşey ise çalıştır -->
 <!-- öncelikle ngFor çalışır -->
 

@@ -104,11 +104,12 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let c of user">
+                    <td>{{c.id}}</td>
                     <td>{{c.firstName}}</td>
                     <td>{{c.lastName}}</td>
                     <td>{{c.email}}</td>
-                    <td><button class="btn btn-success">Güncelle</button></td>
-                    <td><button class="btn btn-danger">Sil</button></td>
+                  <td><button class="btn btn-success">Güncelle</button></td>
+                  <td><button class="btn btn-danger">Sil</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -118,17 +119,17 @@
       </div>
       <form [formGroup]="cliamAddForm">
         <div class="form-group mb-3">
-          <input type="number" id="userId" formControlName="userId" class="form-control" placeholder="Ürün ismi">
+          <input type="number" id="userId" formControlName="userId" class="form-control" placeholder="Kullancı Id'si">
        </div>
        <div class="form-group mb-3">
         <select type="number" id="" formControlName="operationClaimId">
           <!-- <input type="number" id="operationClaimId" formControlName="operationClaimId" class="form-control" placeholder="Ürün ismi"> -->
-          <option *ngFor="let o of operationClaim" [value]="o.id">{{o.name}}</option>
+          <option *ngFor="let o of operationClaim" [ngValue]="o.id">{{o.name}}</option>
         </select>
        </div>
       </form>
       <div class="card-footer">
-        <button (click)="click()" appAdd [entityAddForm]="this.cliamAddForm" [entity]="'claim'" class="btn btn-primary">Ekle</button>
+        <button appAdd [entityAddForm]="this.cliamAddForm" [entity]="'claim'" class="btn btn-primary">Ekle</button>
     </div>
     </div>
   </div>
