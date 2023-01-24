@@ -4,4 +4,11 @@
 }
 #basket-empty-info{
   margin-left:30px;
+  color:black!important;
+}
+ul{
+  list-style: none;
+}
+li{
+  list-style: none;
 }

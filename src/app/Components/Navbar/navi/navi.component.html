@@ -1,51 +1,37 @@
-<!-- <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <li class="me-auto">
-      <a class="navbar-brand" href="#">Navbar</a>
-      </li>
-    </div>
-  </nav> -->
-  <header class="">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <div class="navbar-search">
-            <div class="d-flex" role="search">
-              <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"  placeholder="Search" aria-label="Search">
-            </div>
+ <header>
+  <div class="row">
+      <div class="col-2">
+        <h1>Trendyol</h1>
+      </div>
+      <div class="col-6" id="search-input">
+          <div>
+            <input [(ngModel)]="filterText" id="filterText"  placeholder="Aradığınız ürünü veya kategoriyi buraya yazınız">
           </div>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/contact">Contact Us</a>
-            </li>
-            <li class="nav-item dropdown" *ngIf="IsActive">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >Hesap</a>
-              <ul class="dropdown-menu">
-                  <li><button  routerLink="/userInfo">Kullanıcı Bilgileri</button></li>
-                  <li><button  routerLink="/userOrder">Siparişlerim</button></li>
-                  <li><button  (click)="ExitUser()">Çıkış yap</button></li>
-              </ul>
-            </li>
-            <li class="nav-item" *ngIf="IsActive==false">
-              <a class="nav-link"  routerLink="/login">Giriş</a>
-            </li>
-            <li class="nav-item" *ngIf="IsActive==false">
-              <a class="nav-link" routerLink="/register">Kayıt Ol</a>
-            </li>
-            <li >
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <app-card-summary></app-card-summary>
-              </div>
-            </li>
+      </div>
+      <div class="col-2" id="basket">
+          <div id="navbarSupportedContent">
+            <app-card-summary></app-card-summary>
+          </div>
+      </div>
+      <div class="col-1">
+          Favoriler
+      </div>
+      <div class="col-1">
+        <div class="nav-item dropdown" *ngIf="IsActive==false">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Giriş Yap</a>
+          <ul class="dropdown-menu">
+            <li routerLink="/login">Giriş Yap</li>
+            <li routerLink="/register">Kayıt Ol</li>
+          </ul>
+        </div>
+        <div class="nav-item dropdown" *ngIf="IsActive">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >Hesap</a>
+          <ul class="dropdown-menu">
+              <li><button  routerLink="/userInfo">Kullanıcı Bilgileri</button></li>
+              <li><button  routerLink="/userOrder">Siparişlerim</button></li>
+              <li><button  (click)="ExitUser()">Çıkış yap</button></li>
           </ul>
         </div>
       </div>
-    </nav>
-  </header>
+  </div>
+</header>
