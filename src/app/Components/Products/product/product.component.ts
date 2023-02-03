@@ -5,6 +5,8 @@ import { ProductService } from 'src/app/services/Product/product.service';
 import { CardService } from 'src/app/services/Product/card.service';
 import { ThisReceiver } from '@angular/compiler';
 import { AuthService } from 'src/app/services/User/auth.service';
+import { ProductImgService } from 'src/app/services/Product/product-img.service';
+import { ProductImg } from 'src/app/models/Product/productImg';
 
 
 
@@ -16,12 +18,15 @@ import { AuthService } from 'src/app/services/User/auth.service';
 })
 export class ProductComponent implements OnInit{
   dataLoaded=false;
+  product:ProductImg[]=[]
   products:Product[]=[]
   productsPop:Product[]=[]
+  productImg:ProductImg[]=[]
   filterText="";
+  imgaeUrl:'https://localhost:44331/';
   //acrivateRoute=sitedeki url kısmını temsil eder
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute
-    ,private cartService:CardService,private router:Router){}//private oldugunca sadece bu class ta kullanılabilir,dışardan çagrılamaz
+    ,private cartService:CardService,private productImgService:ProductImgService){}//private oldugunca sadece bu class ta kullanılabilir,dışardan çagrılamaz
 
     ngOnInit(): void {
     this.activateRoute.params.subscribe(params=>{
@@ -31,8 +36,9 @@ export class ProductComponent implements OnInit{
       }else{
         this.getProducts()
       }
-    })//subscribe edilince params ın içine ulaşılabilir oluyor
+    })
     this.getPopProductFirstTen();
+
   }
   getProducts(){
     //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır
@@ -60,4 +66,22 @@ export class ProductComponent implements OnInit{
     this.productsPop=res.data
     })
   }
+  getProductImg(productId:number){
+    this.productImgService.getProductImages(productId).subscribe(res=>{
+     this.productImg=res.data
+     console.log(res.data)
+    })
+  }
+  getAllProductImg()
+  {
+    this.productImgService.getAllProductImages().subscribe(res=>{
+      this.productImg=res.data
+      console.log(res.data)
+    })
+  }
+  getImageSource(productImage:ProductImg):string{
+    let url:string = "https://localhost:44331/Uploads/Images/" + productImage.imagePath;
+    return url;
+  }
+
 }
