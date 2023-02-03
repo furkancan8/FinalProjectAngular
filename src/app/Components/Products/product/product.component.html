@@ -82,7 +82,8 @@
          </a> -->
          <div class="product" id="first-product">
           <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
-           <img src="../../../image/image10.jpeg" class="product-img">
+          <div *ngFor="let p of productImg"><img [src]="getImageSource(p)" class="product-img"/></div>
+
            <div><h6>{{product.productName |uppercase}}</h6></div>
            <div class="product-p"><p>{{product.quantityPerUnit |lowercase}}</p></div>
            <div class="product-h"><h4>{{product.unitPrice |currency}}</h4></div>
