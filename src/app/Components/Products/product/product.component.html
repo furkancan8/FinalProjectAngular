@@ -67,26 +67,12 @@
         </div>
        <div class="row" *ngIf="products.length>1 else noProducts">
         <div class="col_2"*ngFor="let product of products |filterPipe:filterText">
-         <!-- <a routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
-          <div class="product-item">
-            <div class="down-content">
-              <h4>{{product.productName |uppercase}}</h4>
-              <h6>{{product.unitPrice |currency}}</h6>
-              <p>{{product.quantityPerUnit|lowercase}}</p>
-              <ul class="stars">
-                <li><span>Reviews({{product.reviews}})</span></li>
-              </ul>
-              <button (click)="addToCard(product)" class="btn btn-out-dark btn-sm">Sepete ekle</button>
-            </div>
-          </div>
-         </a> -->
          <div class="product" id="first-product">
           <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
-          <div *ngFor="let p of productImg"><img [src]="getImageSource(p)" class="product-img"/></div>
-
-           <div><h6>{{product.productName |uppercase}}</h6></div>
-           <div class="product-p"><p>{{product.quantityPerUnit |lowercase}}</p></div>
-           <div class="product-h"><h4>{{product.unitPrice |currency}}</h4></div>
+          <div *ngFor="let p of productImg"><img [src]="getImageSource(p)" class="product-img"></div>
+           <div class="product-name">{{product.productName |uppercase}}</div>
+           <!-- <div class="product-p"><p>{{product.quantityPerUnit |lowercase}}</p></div> -->
+           <div class="product-price"><h6>{{product.unitPrice |currency}}</h6></div>
           </a>
         </div>
         </div>
