@@ -30,6 +30,7 @@ import { UserInfoComponent } from './Components/User/user-info/user-info.compone
 import { UserOrdersComponent } from './Components/User/user-orders/user-orders.component';
 import { ProductSection1Component } from './Components/Products/product-section1/product-section1.component';
 import { ProductSection2Component } from './Components/Products/product-section2/product-section2.component';
+import { UserCommentComponent } from './Components/User/user-comment/user-comment.component';
 
 @NgModule({
   //kendi projemizdeki componentler
@@ -56,7 +57,8 @@ import { ProductSection2Component } from './Components/Products/product-section2
     UserInfoComponent,
     UserOrdersComponent,
     ProductSection1Component,
-    ProductSection2Component
+    ProductSection2Component,
+    UserCommentComponent
   ],
   //dışardan aldıgımız moduller
   imports: [

@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit{
       }
     })
     this.getPopProductFirstTen();
-
+    this.getProductImg(1);
   }
   getProducts(){
     //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır

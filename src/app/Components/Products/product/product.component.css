@@ -16,10 +16,21 @@
   overflow-y:hidden;
   inline-size: 100%;
 }
-.product-h{
-  margin-top:20px;
+.product-price{
+  margin-top:15px;
 }
 .col_2{
   width: 20%;
   flex: 0 0 auto;
+}
+.product-name{
+  height: 34px;
+  color:rgba(30, 30, 30,0.8);
+  font-size:12px!important;
+  font-weight: bold;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  overflow-y:hidden;
+  inline-size: 100%;
+
 }

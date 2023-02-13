@@ -16,14 +16,19 @@ export class UserInfoComponent implements OnInit{
   UserDetails:User[]=[]
   City:City[]=[]
   District:District[]=[]
-  cityId:number
+  filterDistrict:District[]=[]
+  cityId:any=''
    constructor(private userService:UserService) {
 
    }
    ngOnInit(): void {
     this.getUserDetail();
-    this.getDistrict(this.cityId);
+    this.getAllDistrict();
     this.getCity();
+   }
+   updateChangeDistrict(){
+    this.filterDistrict=[]
+     this.filterDistrict=this.District.filter(d=>d.cityId==this.cityId)
    }
    getUserDetail()
    {
@@ -37,10 +42,9 @@ export class UserInfoComponent implements OnInit{
      this.City=res.data
     })
    }
-   getDistrict(categoryId:number){
-    this.userService.getCityofDistrict(categoryId).subscribe(res=>{
+   getAllDistrict(){
+    this.userService.getAllDistrict().subscribe(res=>{
       this.District=res.data
-      console.log(this.District)
     })
    }
 }

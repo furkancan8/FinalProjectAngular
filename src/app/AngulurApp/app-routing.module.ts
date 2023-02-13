@@ -13,6 +13,7 @@ import { ContactComponent } from '../Components/contact/contact.component';
 import { BasketComponent } from '../Components/Navbar/basket/basket.component';
 import { UserInfoComponent } from '../Components/User/user-info/user-info.component';
 import { UserOrdersComponent } from '../Components/User/user-orders/user-orders.component';
+import { UserCommentComponent } from '../Components/User/user-comment/user-comment.component';
 //dizideki routler tanımlanır
 const routes: Routes = [
   {path:"",pathMatch:"full",component:ProductComponent},//pathmatch=anasayfa için verilir
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path:"update/:categoryId",component:UpdateEntityComponent},
   {path:"basket",component:BasketComponent},
   {path:"userInfo",component:UserInfoComponent},
-  {path:"userOrder",component:UserOrdersComponent}
+  {path:"userOrder",component:UserOrdersComponent},
+  {path:"userComment",component:UserCommentComponent}
 
 ];
 //projeye dahil edilir

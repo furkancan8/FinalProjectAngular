@@ -11,9 +11,14 @@ export class CommentService {
 
   constructor(private httpClient:HttpClient) { }
   apiUrl="https://localhost:44331/api/comment/";
-  getProductOfComment(productId:Number):Observable<ListResponseModel<Comment>>
+  getProductOfComment(productId:number):Observable<ListResponseModel<Comment>>
   {
-    var newPath=this.apiUrl+"getbyproductid?productId="+productId;
+    var newPath=this.apiUrl+"getproductcomment?productId="+productId;
+    return this.httpClient.get<ListResponseModel<Comment>>(newPath)
+  }
+  getUserOfComment(userId:number):Observable<ListResponseModel<Comment>>
+  {
+    var newPath=this.apiUrl+"getusercomment?userId="+userId;
     return this.httpClient.get<ListResponseModel<Comment>>(newPath)
   }
 }

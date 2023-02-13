@@ -34,9 +34,9 @@ export class UserService {
    var newPath=this.apiUrl+"getallcity";
    return this.httpClient.get<ListResponseModel<City>>(newPath)
   }
-  getCityofDistrict(cityId:number):Observable<ListResponseModel<District>>
+  getAllDistrict():Observable<ListResponseModel<District>>
   {
-    var newPath=this.apiUrl+"getdistrictofcity?cityId="+cityId;
+    var newPath=this.apiUrl+"getalldistrict";
     return this.httpClient.get<ListResponseModel<District>>(newPath)
   }
   getAllFavoriteUser(userId:number)

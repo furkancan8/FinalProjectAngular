@@ -11,11 +11,12 @@
 </ul>
 
 <ul>
-    <select [(ngModel)]="cityId" name="" id="">
-        <option  *ngFor="let c of City" value="{{c.id}}">{{c.name}}</option>
+    <select [(ngModel)]="cityId" name="" id="" (ngModelChange)="updateChangeDistrict()">
+        <option value="" disabled [selected]="!cityId">Seçiniz</option>
+        <option *ngFor="let c of City" value="{{c.id}}">{{c.name}}</option>
     </select>
-    {{this.cityId}}
-    <select *ngIf="cityId" name="" id="">
-        <option  *ngFor="let d of District">{{d.districtName}}</option>
+    <select  name="" id="">
+        <option value="" disabled selected>Seçiniz</option>
+        <option  *ngFor="let d of filterDistrict" >{{d.districtName}}</option>
     </select>
 </ul>
