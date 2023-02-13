@@ -4,6 +4,9 @@
     </a>
     <ul class="dropdown-menu">
       <li  *ngIf="cardItems.length==0" id="basket-empty-info">Sepetiniz boş</li>
-      <li><a *ngFor="let cardItem of cardItems" class="dropdown-item" href="#"><span class="badge text-dark">{{cardItem.quantity}}-</span><span id="basket_product-name">{{cardItem.product.productName}}</span><span (click)="removeFromCart(cardItem.product)" class="badge text-bg-danger ml-5">Sil</span></a></li>
+      <li><a *ngFor="let cardItem of cardItems" class="dropdown-item" href="#">
+        <span class="badge text-dark">{{cardItem.quantity}}-</span>
+        <span id="basket_product-name">{{cardItem.product.productName}}</span>
+        <span (click)="removeFromCart(cardItem.product)" class="badge text-bg-danger ml-5">Sil</span></a></li>
     </ul>
   </li>
