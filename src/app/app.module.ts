@@ -25,12 +25,12 @@ import { DeleteDirective } from './directive/delete.directive';
 import { UpdateDirective } from './directive/update.directive';
 import { AddDirective } from './directive/add.directive';
 import { ContactComponent } from './Components/contact/contact.component';
-import { BasketComponent } from './Components/Navbar/basket/basket.component';
 import { UserInfoComponent } from './Components/User/user-info/user-info.component';
 import { UserOrdersComponent } from './Components/User/user-orders/user-orders.component';
 import { ProductSection1Component } from './Components/Products/product-section1/product-section1.component';
 import { ProductSection2Component } from './Components/Products/product-section2/product-section2.component';
 import { UserCommentComponent } from './Components/User/user-comment/user-comment.component';
+import { BasketComponent } from './Components/Navbar/basket/basket.component';
 
 @NgModule({
   //kendi projemizdeki componentler
@@ -53,12 +53,12 @@ import { UserCommentComponent } from './Components/User/user-comment/user-commen
     UpdateDirective,
     AddDirective,
     ContactComponent,
-    BasketComponent,
     UserInfoComponent,
     UserOrdersComponent,
     ProductSection1Component,
     ProductSection2Component,
-    UserCommentComponent
+    UserCommentComponent,
+    BasketComponent
   ],
   //dışardan aldıgımız moduller
   imports: [

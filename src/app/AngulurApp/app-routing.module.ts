@@ -10,10 +10,10 @@ import { NaviComponent } from '../Components/Navbar/navi/navi.component';
 import { AdminComponent } from '../Components/Admin/admin/admin.component';
 import { UpdateEntityComponent } from '../Components/Admin/update-entity/update-entity.component';
 import { ContactComponent } from '../Components/contact/contact.component';
-import { BasketComponent } from '../Components/Navbar/basket/basket.component';
 import { UserInfoComponent } from '../Components/User/user-info/user-info.component';
 import { UserOrdersComponent } from '../Components/User/user-orders/user-orders.component';
 import { UserCommentComponent } from '../Components/User/user-comment/user-comment.component';
+import { BasketComponent } from '../Components/Navbar/basket/basket.component';
 //dizideki routler tanımlanır
 const routes: Routes = [
   {path:"",pathMatch:"full",component:ProductComponent},//pathmatch=anasayfa için verilir
@@ -28,7 +28,7 @@ const routes: Routes = [
   {path:"delete/:productId",component:AdminComponent},
   {path:"update/:productId",component:UpdateEntityComponent},
   {path:"update/:categoryId",component:UpdateEntityComponent},
-  {path:"basket",component:BasketComponent},
+   {path:"basket",component:BasketComponent},
   {path:"userInfo",component:UserInfoComponent},
   {path:"userOrder",component:UserOrdersComponent},
   {path:"userComment",component:UserCommentComponent}
