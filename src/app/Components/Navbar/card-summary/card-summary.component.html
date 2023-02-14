@@ -1,12 +1,12 @@
 <li class="nav-item dropdown" routerLink="basket">
-    <a class="nav-link dropdown-toggle mt-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link  mt-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Sepetiniz
     </a>
-    <ul class="dropdown-menu">
+    <!-- <ul class="dropdown-menu">
       <li  *ngIf="cardItems.length==0" id="basket-empty-info">Sepetiniz boş</li>
       <li><a *ngFor="let cardItem of cardItems" class="dropdown-item" href="#">
         <span class="badge text-dark">{{cardItem.quantity}}-</span>
         <span id="basket_product-name">{{cardItem.product.productName}}</span>
         <span (click)="removeFromCart(cardItem.product)" class="badge text-bg-danger ml-5">Sil</span></a></li>
-    </ul>
+    </ul> -->
   </li>

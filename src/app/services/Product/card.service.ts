@@ -4,7 +4,9 @@ import { CartItems } from '../../models/Product/cartItems';
 import { CartItem } from '../../models/Product/cartItem';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CardService {
 
   constructor() { }
@@ -23,6 +25,13 @@ export class CardService {
   removeFromCard(product:Product){
     let item=CartItems.find(s=>s.product.categoryId==product.categoryId);
     CartItems.splice(CartItems.indexOf(item),1);
+  }
+  addToBasket(product:Product)
+  {
+      let cardItem=new CartItem();
+      cardItem.product=product;
+      cardItem.quantity+=1;
+      CartItems.push(cardItem)
   }
   list()
   {

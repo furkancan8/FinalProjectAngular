@@ -2,6 +2,7 @@ import { Directive, HostListener, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ResponseModel } from '../models/responseModel';
 import { AdminService } from '../services/User/admin.service';
+import { BasketService } from '../services/User/basket.service';
 import { ContactService } from '../services/User/contact.service';
 import { OperationclaimService } from '../services/User/operationclaim.service';
 
@@ -12,7 +13,7 @@ import { OperationclaimService } from '../services/User/operationclaim.service';
 export class AddDirective {
 
   constructor(private adminService:AdminService,private operationClaimService:OperationclaimService,private contactService:ContactService
-  ) {}
+  ,private basketService:BasketService) {}
   @Input() entityAddForm:FormGroup;
   @Input() entity:string;
    @HostListener("click")
@@ -54,6 +55,12 @@ export class AddDirective {
   {
     let entityModel=Object.assign({},this.entityAddForm.value);
     this.contactService.addContact(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
+  }else if(this.entity=="basket")
+  {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.basketService.addBasket(entityModel).subscribe(res=>{
       console.log(res.success)
     })
   }
