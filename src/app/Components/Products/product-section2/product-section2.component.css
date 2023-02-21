@@ -8,13 +8,28 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
+
 }
 .product-cap{
-    background-color: blue;
-    width: 25%;
-    height:40vh;
-    margin: 25px;
-    margin-top: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    width: 50%;
+    height:45vh;
+    margin-top: 30px;
+    margin-right: 150px;
+    border-radius: 20px;
+}
+.product{
+    width: 100%;
+    height: 100%;
+}
+#cap-row>div:nth-child(1){
+    margin-left:120px;
+}
+
+.cap-a{
+    width:auto;
 }
 #cap-row>div:nth-child(1){
     margin-left:120px;

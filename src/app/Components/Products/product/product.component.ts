@@ -9,6 +9,7 @@ import { ProductImgService } from 'src/app/services/Product/product-img.service'
 import { ProductImg } from 'src/app/models/Product/productImg';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BasketService } from 'src/app/services/User/basket.service';
+import { SideCategory } from 'src/app/models/Product/sideCateogry';
 
 
 
@@ -29,7 +30,9 @@ export class ProductComponent implements OnInit{
   productImg:ProductImg[]=[]
   filterText="";
   imgaeUrl:'https://localhost:44331/';
+  sideCategory:SideCategory
   basketAddForm:FormGroup
+  tryFloat:number=1.5;
   //acrivateRoute=sitedeki url kısmını temsil eder
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute
     ,private cartService:CardService,private productImgService:ProductImgService,private formsBuilder:FormBuilder,
@@ -37,17 +40,19 @@ export class ProductComponent implements OnInit{
 
     ngOnInit(): void {
     this.activateRoute.params.subscribe(params=>{
-      if(params["categoryId"])//params ın içinde categoryId varsa
+      if(params["categoryId"] & params["sCategoryId"])//params ın içinde categoryId varsa
       {
+        this.getSideCategoryForProduct(params["categoryId"],params["sCategoryId"])
+      }else if(params["categoryId"]){
         this.getProductsByCategory(params["categoryId"])
       }else{
         this.getProducts()
       }
+      console.log(params)
     })
     this.getPopProductFirstTen();
     this.getProductImg(1);
-    this.createProductAddForm()
-
+    this.createBasketAddForm()
   }
   getProducts(){
     //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır
@@ -60,8 +65,16 @@ export class ProductComponent implements OnInit{
     //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır
       this.productService.getProductsByCategory(categoryId).subscribe(response=>{
       this.products=response.data
-      this.dataLoaded=true;
+      console.log(response.data)
      })
+  }
+  getSideCategoryForProduct(categoryId:number,sideCategoryId:number)
+  {
+    this.productService.getSideCategoryForProduct(categoryId,sideCategoryId).subscribe(res=>{
+      this.products=res.data
+      console.log(this.products)
+      this.dataLoaded=true;
+    })
   }
   addToCard(product:Product){
    this.cartService.addToCard(product);
@@ -95,19 +108,20 @@ export class ProductComponent implements OnInit{
     let url:string = "https://localhost:44331/Uploads/Images/" + productImage.imagePath;
     return url;
   }
+  getStartImage(startValue:number){
+    let url:string = "https://localhost:44331/Uploads/Images/starts-"+startValue+".png" ;
+    return url;
+  }
   getProductId(productId:number)
   {
     this.productid=productId;
-    this.basketAddForm.get('productId').setValue(this.productid);
-    let entityModel=Object.assign({},this.basketAddForm.value);
-    this.basketService.addBasket(entityModel).subscribe(res=>{
-   })
+    this.createBasketAddForm()
   }
-  createProductAddForm(){
+  createBasketAddForm(){
       this.basketAddForm=this.formsBuilder.group({
       userId:[this.userId,Validators.required],
-      productId:[0,[Validators.required, Validators.pattern('^[0-9]+$')]],
+      productId:[this.productid,[Validators.required, Validators.pattern('^[0-9]+$')]],
      })
+     this.basketAddForm.get('productId').setValue(this.productid);
   }
-
 }

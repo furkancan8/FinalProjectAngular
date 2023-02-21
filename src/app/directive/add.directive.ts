@@ -59,10 +59,12 @@ export class AddDirective {
     })
   }else if(this.entity=="basket")
   {
-    let entityModel=Object.assign({},this.entityAddForm.value);
-    this.basketService.addBasket(entityModel).subscribe(res=>{
-      console.log(res.success)
-    })
+    setTimeout(()=>{
+      let entityModel=Object.assign({},this.entityAddForm.value);
+      this.basketService.addBasket(entityModel).subscribe(res=>{
+        console.log(res.success)
+      })
+    },1000)
   }
  }
 }
