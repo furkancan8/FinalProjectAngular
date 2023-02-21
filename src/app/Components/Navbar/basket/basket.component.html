@@ -1,1 +1,9 @@
-<p>basket works!</p>
+<div *ngFor="let p of products">
+ {{p.productName}}
+ {{p.productId}}
+     <button routerLink="/delete/basket/{{p.productId}}" appDelete [entity]="'basket'" [productId]="getInBasketProductId(p.productId)" class="btn btn-danger">Sil</button>
+     <form [formGroup]="this.basketAddForm">
+        <input type="hidden" id="productId" name="productId" value="{{p.productId}}">
+        <button (click)="getProductId(p.productId)" appAdd [entityAddForm]="this.basketAddForm" [entity]="'basket'" class="btn btn-success btn-sm">Ekle</button>
+    </form>
+</div>

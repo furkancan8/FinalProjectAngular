@@ -7,7 +7,9 @@ import { ResponseModel } from '../../models/responseModel';
 import { SingleResponseModel } from '../../models/singleResponseModel';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService {
   apiUrl="https://localhost:44331/api/";
 
@@ -23,6 +25,11 @@ export class ProductService {
   }
   getProductsByCategory(categoryId:number):Observable<ListResponseModel<Product>>{
     let newPath=this.apiUrl+"products/getbycategory?categoryId="+categoryId;
+    return this.httpClient.get<ListResponseModel<Product>>(newPath);
+  }
+  getSideCategoryForProduct(categoryId:number,sideCategoryId:number):Observable<ListResponseModel<Product>>
+  {
+    let newPath=this.apiUrl+"products/getsidecategoryforproduct?categoryId="+categoryId+"&sideCategoryId="+sideCategoryId;
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
   }
   getProductDetails(productId:number):Observable<SingleResponseModel<Product>>

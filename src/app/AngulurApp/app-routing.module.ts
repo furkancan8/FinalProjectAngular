@@ -20,15 +20,17 @@ const routes: Routes = [
   {path:"products/add",component:ProductAddComponent,canActivate:[LoginGuard]},
   {path:"products/:productId",component:ProductDetailComponent},//böyle bir route oluşursa detailcomponent çalışır
   {path:"products/category/:categoryId",component:ProductComponent},//categoryId back-and den gelen parametre ile aynı isme sahip olmalı
+  {path:"products/category/:categoryId/:sCategoryId",component:ProductComponent},//categoryId back-and den gelen parametre ile aynı isme sahip olmalı
   {path:"products",component:ProductComponent},
   {path:"contact",component:ContactComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"admin",component:AdminComponent},
-  {path:"delete/:productId",component:AdminComponent},
+  {path:"delete/product/:productId",component:AdminComponent},
   {path:"update/:productId",component:UpdateEntityComponent},
   {path:"update/:categoryId",component:UpdateEntityComponent},
-   {path:"basket",component:BasketComponent},
+  {path:"basket",component:BasketComponent},
+  {path:"delete/basket/:basketId",component:BasketComponent},
   {path:"userInfo",component:UserInfoComponent},
   {path:"userOrder",component:UserOrdersComponent},
   {path:"userComment",component:UserCommentComponent}

@@ -11,7 +11,6 @@ import { NaviComponent } from './Components/Navbar/navi/navi.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
-import { ToastrModule } from 'ngx-toastr';
 import { CardSummaryComponent } from './Components/Navbar/card-summary/card-summary.component';
 import { ProductAddComponent } from './Components/Admin/product-add/product-add.component';
 import { LoginComponent } from './Components/User/login/login.component';

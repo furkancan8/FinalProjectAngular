@@ -23,7 +23,7 @@
                     <td>{{p.unitsInStock}}</td>
                     <td class=" text-center">{{p.unitPrice}}₺</td>
                     <td><button routerLink="/update/{{p.productId}}" class="btn btn-success">Güncelle</button></td>
-                    <td><button routerLink="/delete/{{p.productId}}" appDelete [entity]="'product'" [productId]="p.productId" class="btn btn-danger">Sil</button></td>
+                    <td><button routerLink="/delete/product/{{p.productId}}" appDelete [entity]="'product'" [productId]="p.productId" class="btn btn-danger">Sil</button></td>
                   </tr>
                 </tbody>
               </table>
