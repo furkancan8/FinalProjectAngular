@@ -1,17 +1,26 @@
 <div id="category-cap">
 <ul class="row" id="category-cap_ul">
-    <!-- <li class="col-1" [class]="getAllCategoryClass()" routerLink="/products">Tüm Ürünler</li> -->
-    <li class="category" (click)="setCurrentCategory(category);getSideCategory(category.categoryId)"*ngFor="let category of categories"
+    <li class="category" (click)="setCurrentCategory(category);removeCategoryClass()"
+    *ngFor="let category of categories"
     routerLink="/products/category/{{category.categoryId}}"
     [class]="getCurrentCategoryClass(category)">{{category.categoryName}}</li>
+    <!-- (mouseenter)="getSideCategory(category.categoryId)" -->
 </ul>
-<ul class="row ">
-
-   <li  class="col-1" *ngFor="let s of sideCategories" routerLink="/products/category/{{this.categoryId}}/{{s.sCategoryId}}">
+ <div [id]="addSideCategoryClass()">
+   <div class="row">
+    <div  class="col-3 side-category"  *ngFor="let s of sideCategories"
+     routerLink="/products/category/{{this.categoryId}}/{{s.sCategoryId}}">
       {{s.sCategoryName}}
-   </li>
+       <div *ngFor="let u of underCategory" class="under-category">
+         <div *ngIf="s.sCategoryId==u.sideCategoryId">
+           {{u.name}}
+         </div>
+      </div>
+    </div>
+    <div (click)="removeCategoryClass()" id="delete-div"><img id="delete-icon" [src]="this.closeIcon"></div>
+   </div>
+ </div>
 
-</ul>
 </div>
 <!-- currentCategory varsa,anlamlı birşey ise çalıştır -->
 <!-- öncelikle ngFor çalışır -->

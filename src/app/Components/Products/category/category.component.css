@@ -1,3 +1,9 @@
+.category{
+  width: auto;
+  flex-shrink: 0;
+  flex-grow: 1;
+  cursor: pointer;
+}
 #category-cap{
  border-bottom: 1px solid rgb(217, 217, 217);
   border-radius: 5px;
@@ -5,22 +11,58 @@
   margin-top:10px;
 }
 #category-cap_ul{
-    --bs-gutter-x:0!important;
-  margin-left: 20px;
+  --bs-gutter-x:0!important;
+  margin-left:65px;
   padding-top:7px ;
   padding-bottom:7px ;
 }
 #category-cap_ul li{
-   margin-left:30px;
+   opacity: 0.8;
 }
 #category-cap_ul li:hover{
     color:rgb(123, 122, 122);
  }
-.category{
-  width: auto;
-  flex-shrink: 0;
-  flex-grow: 1;
-}
 ul{
   font-weight: 600;
+}
+#side-category-cap{
+  position: relative;
+  position: absolute;
+  left: 33%;
+  background-color:rgb(255, 255, 255);
+  opacity: 1;
+  margin: 10px;
+  padding: 15px;
+  height: 200px;
+  width:500px;
+  border-radius: 10px;
+}
+.side-category{
+
+  color:black;
+  font-weight: 500;
+  font-size: 17px;
+  text-align: center;
+  margin: left 30px;
+  margin-top: 5px;
+}
+.under-category{
+
+  cursor: pointer;
+  font-size: 12px;
+  color:rgb(126, 126, 126);
+  margin-bottom: 5px;
+}
+.under-category:hover{
+  color:rgb(70, 70, 70);
+}
+#delete-div{
+cursor: pointer;
+text-align: right;
+top: -2px;
+position: absolute;
+}
+#delete-icon{
+  width: 15px;
+  height: 15px;
 }

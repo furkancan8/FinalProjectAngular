@@ -40,20 +40,19 @@
 <section>
   <div class="row">
     <h1>En Popüler Ürünlerimiz</h1>
-    <div class="col-md-3" *ngFor="let p of productsPop|filterPipe:filterText">
+    <div class="col-md-3" *ngFor="let product of productsPop|filterPipe:filterText">
       <div class="product" id="first-product">
-        <a  routerLink="/products/{{p.productId}}" (click)="getProductDetails(p.productId)">
-        <div *ngFor="let p of productImg"><img [src]="getImageSource(p)" class="product-img"></div>
-         <div class="product-name">{{p.productName |uppercase}}</div>
-         <!-- <div class="product-p"><p>{{product.quantityPerUnit |lowercase}}</p></div> -->
-         <div class="product-price"><h6>{{p.unitPrice |currency}}</h6></div>
-         <div><img [src]="getStartImage(4.5)"></div>
+        <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
+         <img [src]="this.imageUrl+product.imagePath" class="product-img">
+         <div class="product-name default-font">{{product.productName |uppercase}}</div>
+         <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+         <div class="product-price"><h6>{{product.unitPrice |currency}}</h6></div>
         </a>
+        <!-- <form [formGroup]="this.basketAddForm">
+          <input type="hidden" id="productId" name="productId" value="{{p.productId}}">
+      </form>
+      <button (click)="getProductId(p.productId)"  appAdd [entityAddForm]="this.basketAddForm" [entity]="'basket'" class="btn btn-out-dark btn-sm">Sepete ekle</button> -->
       </div>
-         <form [formGroup]="this.basketAddForm">
-            <input type="hidden" id="productId" name="productId" value="{{p.productId}}">
-        </form>
-        <button (click)="getProductId(p.productId)"  appAdd [entityAddForm]="this.basketAddForm" [entity]="'basket'" class="btn btn-out-dark btn-sm">Sepete ekle</button>
     </div>
   </div>
 </section>
@@ -69,9 +68,9 @@
         <div class="col_2"*ngFor="let product of products |filterPipe:filterText">
          <div class="product" id="first-product">
           <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
-          <div *ngFor="let p of productImg"><img [src]="getImageSource(p)" class="product-img"></div>
-           <div class="product-name">{{product.productName |uppercase}}</div>
-           <!-- <div class="product-p"><p>{{product.quantityPerUnit |lowercase}}</p></div> -->
+           <img [src]="this.imageUrl+product.imagePath" class="product-img">
+           <div class="product-name default-font">{{product.productName |uppercase}}</div>
+           <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
            <div class="product-price"><h6>{{product.unitPrice |currency}}</h6></div>
           </a>
         </div>

@@ -7,5 +7,7 @@ export interface Product{
     unitPrice:number;
     quantityPerUnit:string;
     reviews:number;
-    image:string;
+    sellCount:number;
+    startCount:number;
+    imagePath:number;
 }

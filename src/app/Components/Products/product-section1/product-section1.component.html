@@ -4,9 +4,10 @@
         <div id="cap-row">
           <div class="product" *ngFor="let p of productCamera">
             <a>
-             <div class="product-img"></div>
-             <div class="product-p"><p>{{p.productName}}₺</p></div>
-             <div class="product-h"><h4>{{p.unitPrice}}₺</h4></div>
+              <img [src]="this.imageUrl+p.imagePath" class="product-img">
+             <div class="product-p default-font"><p>{{p.productName}}</p></div>
+             <div><img [src]="getStartImage(p.startCount)" class="product-starts"> <span class="product-reviews">{{p.reviews}}</span></div>
+             <div class="product-price"><h4>{{p.unitPrice}}<span class="product-price-unit">TL</span></h4></div>
             </a>
           </div>
         </div>

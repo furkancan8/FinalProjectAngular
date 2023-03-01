@@ -12,4 +12,26 @@ ul {
 	margin: 0;
 	list-style: none;
 }
-
+.default-font{
+  font-family:sans-serif, Times, serif;
+  font-size: 13px!important;
+  font-weight: 400!important;
+  color:black!important;
+  margin:5px;
+  margin-left:10px!important;;
+  inline-size: 100%;
+  overflow:hidden;
+  word-wrap: break-word;
+}
+.product-price-unit{
+    font-size: 14px;
+    margin-left:5px;
+}
+.rows{
+  display: flex;
+  flex-wrap: wrap;
+}
+.col_2{
+  width: 20%;
+  flex: 0 0 auto;
+}

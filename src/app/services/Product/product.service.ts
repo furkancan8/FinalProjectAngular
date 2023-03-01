@@ -42,4 +42,9 @@ export class ProductService {
     let newPath=this.apiUrl+"products/getpopcategoryfirst";
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
   }
+  GetCategoryInPopulerProduct(categoryId:number):Observable<SingleResponseModel<Product>>
+  {
+    let newPath=this.apiUrl+"products/getcategoryinpopulerproduct?categoryId="+categoryId;
+    return this.httpClient.get<SingleResponseModel<Product>>(newPath);
+  }
 }

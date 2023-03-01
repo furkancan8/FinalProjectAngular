@@ -12,7 +12,7 @@ import { ProductService } from 'src/app/services/Product/product.service';
 export class ProductSection1Component implements OnInit{
   productImg:ProductImg[]=[]
   productCamera:Product[]=[]
-
+  imageUrl:string="https://localhost:44331/Uploads/Images/";
   constructor(private productImgService:ProductImgService,private productService:ProductService) {
 
   }
@@ -31,5 +31,8 @@ export class ProductSection1Component implements OnInit{
     this.productCamera=res.data.slice(0,3)
     })
   }
-
+  getStartImage(startValue:number){
+    let url:string = "https://localhost:44331/Uploads/Images/star-"+startValue+".png" ;
+    return url;
+  }
 }
