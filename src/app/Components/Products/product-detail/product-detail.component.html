@@ -8,3 +8,6 @@
   {{p.dateTime}}
   {{p.image}}
 </div>
+<div *ngFor="let pImg of productImg">
+  <img [src]="getImageSource(pImg.imagePath)">
+</div>

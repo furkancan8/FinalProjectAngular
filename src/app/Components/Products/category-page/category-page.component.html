@@ -1,0 +1,63 @@
+<div id="banner-cap">
+  <div class="row">
+   <div id="banner-image" class="col-8">
+
+   </div>
+   <div id="populer-product" class="col-4 text-white">
+     <div *ngFor="let product of populerProduct" id="product-cap">
+        <div class="product" id="populer-produt_div">
+            <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
+             <h6>Kategorideki en popüler ürün</h6>
+             <img [src]="this.imageUrl+product.imagePath" class="product-img">
+             <div class="product-name default-font">{{product.productName |uppercase}}</div>
+             <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+             <div class="product-price"><h6>{{product.unitPrice}} ₺</h6></div>
+            </a>
+          </div>
+     </div>
+   </div>
+  </div>
+</div>
+
+
+<div id="brands-cap">
+  <div class="row">
+    <div class="col-4 brand">
+      <h1>LENOCA</h1>
+    </div>
+    <div class="col-4 brand">
+      <h1>LENOCA</h1>
+    </div>
+    <div class="col-4 brand">
+      <h1>LENOCA</h1>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div id="latest-products">
+  <div class="">
+    <div class="rows">
+      <div class="col_2"*ngFor="let product of categoryProduct |filterPipe:filterText">
+        <div class="product">
+          <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
+           <img [src]="this.imageUrl+product.imagePath" class="product-img">
+           <div class="product-name default-font">{{product.productName |uppercase}}</div>
+           <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+           <div class="product-price"><h6>{{product.unitPrice}} ₺</h6></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

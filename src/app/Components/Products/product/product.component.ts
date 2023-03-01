@@ -28,19 +28,18 @@ export class ProductComponent implements OnInit{
   productsPop:Product[]=[]
   productid:number
   productImg:ProductImg[]=[]
+  productImg2:ProductImg[]=[]
   filterText="";
-  imgaeUrl:'https://localhost:44331/';
+  imageUrl:string="https://localhost:44331/Uploads/Images/";
   sideCategory:SideCategory
   basketAddForm:FormGroup
-  tryFloat:number=1.5;
-  //acrivateRoute=sitedeki url kısmını temsil eder
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute
     ,private cartService:CardService,private productImgService:ProductImgService,private formsBuilder:FormBuilder,
-    private basketService:BasketService){}//private oldugunca sadece bu class ta kullanılabilir,dışardan çagrılamaz
+    private basketService:BasketService){}
 
     ngOnInit(): void {
     this.activateRoute.params.subscribe(params=>{
-      if(params["categoryId"] & params["sCategoryId"])//params ın içinde categoryId varsa
+      if(params["categoryId"] & params["sCategoryId"])
       {
         this.getSideCategoryForProduct(params["categoryId"],params["sCategoryId"])
       }else if(params["categoryId"]){
@@ -48,31 +47,27 @@ export class ProductComponent implements OnInit{
       }else{
         this.getProducts()
       }
-      console.log(params)
     })
     this.getPopProductFirstTen();
-    this.getProductImg(1);
+    // this.getProductImg(1);
     this.createBasketAddForm()
+    // this.getAllProductImg()
   }
   getProducts(){
-    //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır
-    this.productService.getProducts().subscribe(response=>{
-      this.products=response.data
+    this.productService.getProducts().subscribe(products=>{
+      this.products=products.data
       this.dataLoaded=true;
      })
   }
   getProductsByCategory(categoryId:number){
-    //bu kod async çalışır,subscribe burda olmasının sebebi aşagıdaki component kodlarıdır.çünkü async çalışır
       this.productService.getProductsByCategory(categoryId).subscribe(response=>{
       this.products=response.data
-      console.log(response.data)
      })
   }
   getSideCategoryForProduct(categoryId:number,sideCategoryId:number)
   {
     this.productService.getSideCategoryForProduct(categoryId,sideCategoryId).subscribe(res=>{
       this.products=res.data
-      console.log(this.products)
       this.dataLoaded=true;
     })
   }
@@ -101,15 +96,15 @@ export class ProductComponent implements OnInit{
   {
     this.productImgService.getAllProductImages().subscribe(res=>{
       this.productImg=res.data
-      console.log(res.data)
+      this.productImg.filter(i=>i.productId)
     })
   }
-  getImageSource(productImage:ProductImg):string{
-    let url:string = "https://localhost:44331/Uploads/Images/" + productImage.imagePath;
+  getImageSource(productImage:string):string{
+    let url:string = "https://localhost:44331/Uploads/Images/" + productImage;
     return url;
   }
   getStartImage(startValue:number){
-    let url:string = "https://localhost:44331/Uploads/Images/starts-"+startValue+".png" ;
+    let url:string = "https://localhost:44331/Uploads/Images/star-"+startValue+".png" ;
     return url;
   }
   getProductId(productId:number)

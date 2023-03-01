@@ -30,7 +30,7 @@ import { ProductSection1Component } from './Components/Products/product-section1
 import { ProductSection2Component } from './Components/Products/product-section2/product-section2.component';
 import { UserCommentComponent } from './Components/User/user-comment/user-comment.component';
 import { BasketComponent } from './Components/Navbar/basket/basket.component';
-
+import { CategoryPageComponent } from './Components/Products/category-page/category-page.component';
 @NgModule({
   //kendi projemizdeki componentler
   declarations: [
@@ -57,7 +57,8 @@ import { BasketComponent } from './Components/Navbar/basket/basket.component';
     ProductSection1Component,
     ProductSection2Component,
     UserCommentComponent,
-    BasketComponent
+    BasketComponent,
+    CategoryPageComponent,
   ],
   //dışardan aldıgımız moduller
   imports: [

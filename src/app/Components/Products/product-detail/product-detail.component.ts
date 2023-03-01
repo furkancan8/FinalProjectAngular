@@ -7,6 +7,8 @@ import { Product } from 'src/app/models/Product/product';
 import { Comment } from 'src/app/models/Product/comment';
 import { CommentService } from 'src/app/services/Product/comment.service';
 import { ProductService } from 'src/app/services/Product/product.service';
+import { ProductImgService } from 'src/app/services/Product/product-img.service';
+import { ProductImg } from 'src/app/models/Product/productImg';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,15 +18,18 @@ import { ProductService } from 'src/app/services/Product/product.service';
 })
 export class ProductDetailComponent implements OnInit{
   products:Product[]=[]
+  productImg:ProductImg[]=[]
   productComment:Comment[]=[]
   productId:number
-  constructor(private route:ActivatedRoute,private productservice:ProductService,private commentService:CommentService) {
+  constructor(private route:ActivatedRoute,private productservice:ProductService,private commentService:CommentService,
+    private productImgService:ProductImgService) {
 
   }
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
       this.getProductDetails(params["productId"])
       this.getProductOfComment(params["productId"])
+      this.getProductImage(params["productId"])
     })
   }
 
@@ -38,5 +43,20 @@ export class ProductDetailComponent implements OnInit{
     this.commentService.getProductOfComment(productId).subscribe(res=>{
       this.productComment=res.data
     })
+  }
+  getStartImage(startValue:number){
+    let url:string = "https://localhost:44331/Uploads/Images/star-"+startValue+".png" ;
+    return url;
+  }
+  getProductImage(productId:number)
+  {
+    this.productImgService.getProductImages(productId).subscribe(res=>{
+      this.productImg=res.data
+      console.log(res.data)
+    })
+  }
+  getImageSource(productImage:string):string{
+    let url:string = "https://localhost:44331/Uploads/Images/" + productImage;
+    return url;
   }
 }

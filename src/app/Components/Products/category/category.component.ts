@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { Category } from 'src/app/models/Product/category';
 import { Product } from 'src/app/models/Product/product';
 import { SideCategory } from 'src/app/models/Product/sideCateogry';
+import { UnderCategory } from 'src/app/models/Product/underCategory';
 import { CategoryService } from 'src/app/services/Product/category.service';
 import { ProductService } from 'src/app/services/Product/product.service';
 
@@ -14,10 +16,15 @@ import { ProductService } from 'src/app/services/Product/product.service';
 })
 export class CategoryComponent implements OnInit{
   //html in kullanıcak oldugu data tutucular
+  getData:boolean=true
   categories:Category[]=[];
   sideCategories:SideCategory[]=[]
+  underCategories:UnderCategory[]=[]
+  underCategory:UnderCategory[]=[]
   products:Product[]=[]
   categoryId:number;
+  sideCategoryId:number[]=[]
+  closeIcon:string="https://localhost:44331/Uploads/Images/cancel-2.png";
   //strict özelligini devre dışı bırakıp interface yapısını kullandık.
   currentCategory:Category;
   constructor(private categoryService:CategoryService,private productService:ProductService,private activateRoute:ActivatedRoute){
@@ -25,6 +32,7 @@ export class CategoryComponent implements OnInit{
   }
   ngOnInit(): void {
    this.getCategories();
+   this.getAllUnderCategory();
   }
   getCategories(){
     this.categoryService.getCategories().subscribe(response=>{
@@ -55,13 +63,54 @@ export class CategoryComponent implements OnInit{
   getSideCategory(categoryId:number){
     this.categoryService.getSideCategory(categoryId).subscribe(res=>{
       this.sideCategories=res.data
+      this.sideCategoryId=[]
+      res.data.forEach(element => {
+        this.sideCategoryId.push(element.sCategoryId)
+        const underCategory=this.underCategories.filter(i=>this.sideCategoryId.includes(i.sideCategoryId));
+        this.underCategory=underCategory
+      });
     })
       this.categoryId=categoryId
+  }
+  getUnderCategory(sideCategoryId:number)
+  {
+    this.categoryService.getUnderCategory(sideCategoryId).subscribe(res=>{
+      this.underCategories=res.data
+    })
+  }
+  getAllUnderCategory()
+  {
+    this.categoryService.getAllUnderCategory().subscribe(res=>{
+      this.underCategories=res.data
+
+    })
+  }
+  addSideCategoryClass()
+  {
+    if(this.sideCategories.length>1)
+    {
+      return "side-category-cap"
+    }
+    return ""
+  }
+  removeCategoryClass()
+  {
+    this.sideCategories=[]
   }
   getSideCategoryForProduct(categoryId:number,sideCategoryId:number)
   {
     this.productService.getSideCategoryForProduct(categoryId,sideCategoryId).subscribe(res=>{
       this.products=res.data
     })
+  }
+  getCloseImage()
+  {
+      let url:string = "https://localhost:44331/Uploads/Images/cancel-1" ;
+      return url;
+  }
+  getCloseImage2()
+  {
+    let url:string = "https://localhost:44331/Uploads/Images/cancel-2" ;
+    return url;
   }
 }
