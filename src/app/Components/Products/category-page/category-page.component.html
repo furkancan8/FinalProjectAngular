@@ -21,15 +21,10 @@
 
 
 <div id="brands-cap">
+  <h3 class="text-center mb-4">Bu kategorideki markalarımız</h3>
   <div class="row">
-    <div class="col-4 brand">
-      <h1>LENOCA</h1>
-    </div>
-    <div class="col-4 brand">
-      <h1>LENOCA</h1>
-    </div>
-    <div class="col-4 brand">
-      <h1>LENOCA</h1>
+    <div class="col-4 brand" *ngFor="let p of brand">
+      <img class="brand-img" [src]="this.imageUrl+p.imageUrl">
     </div>
   </div>
 </div>

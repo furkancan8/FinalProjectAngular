@@ -39,9 +39,4 @@ export class UserService {
     var newPath=this.apiUrl+"getalldistrict";
     return this.httpClient.get<ListResponseModel<District>>(newPath)
   }
-  getAllFavoriteUser(userId:number)
-  {
-   var newPath=this.apiUrl+"getbyuserid?userId="+userId;
-   return this.httpClient.get(newPath);
-  }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, } from '@angular/platform-browser';
+import { NoopAnimationsModule  } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 
@@ -31,6 +32,8 @@ import { ProductSection2Component } from './Components/Products/product-section2
 import { UserCommentComponent } from './Components/User/user-comment/user-comment.component';
 import { BasketComponent } from './Components/Navbar/basket/basket.component';
 import { CategoryPageComponent } from './Components/Products/category-page/category-page.component';
+import { FavoriteProductComponent } from './Components/Products/favorite-product/favorite-product.component';
+import { ProductPageComponent } from './Components/Products/product-page/product-page.component';
 @NgModule({
   //kendi projemizdeki componentler
   declarations: [
@@ -59,6 +62,8 @@ import { CategoryPageComponent } from './Components/Products/category-page/categ
     UserCommentComponent,
     BasketComponent,
     CategoryPageComponent,
+    FavoriteProductComponent,
+    ProductPageComponent,
   ],
   //dışardan aldıgımız moduller
   imports: [
@@ -66,7 +71,8 @@ import { CategoryPageComponent } from './Components/Products/category-page/categ
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NoopAnimationsModule
   ],
   providers: [
   {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}//bütün servislere uygulanalır,global

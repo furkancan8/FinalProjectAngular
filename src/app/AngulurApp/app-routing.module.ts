@@ -15,6 +15,8 @@ import { UserOrdersComponent } from '../Components/User/user-orders/user-orders.
 import { UserCommentComponent } from '../Components/User/user-comment/user-comment.component';
 import { BasketComponent } from '../Components/Navbar/basket/basket.component';
 import { CategoryPageComponent } from '../Components/Products/category-page/category-page.component';
+import { FavoriteProductComponent } from '../Components/Products/favorite-product/favorite-product.component';
+import { ProductPageComponent } from '../Components/Products/product-page/product-page.component';
 //dizideki routler tanımlanır
 const routes: Routes = [
   {path:"",pathMatch:"full",component:ProductComponent},//pathmatch=anasayfa için verilir
@@ -23,6 +25,7 @@ const routes: Routes = [
   {path:"products/category/:categoryId",component:CategoryPageComponent},//categoryId back-and den gelen parametre ile aynı isme sahip olmalı
   {path:"products/category/:categoryId/:sCategoryId",component:CategoryPageComponent},//categoryId back-and den gelen parametre ile aynı isme sahip olmalı
   {path:"products",component:ProductComponent},
+  {path:"product",component:ProductPageComponent},
   {path:"contact",component:ContactComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
@@ -34,7 +37,8 @@ const routes: Routes = [
   {path:"delete/basket/:basketId",component:BasketComponent},
   {path:"userInfo",component:UserInfoComponent},
   {path:"userOrder",component:UserOrdersComponent},
-  {path:"userComment",component:UserCommentComponent}
+  {path:"userComment",component:UserCommentComponent},
+  {path:"userFavorite",component:FavoriteProductComponent},
 
 ];
 //projeye dahil edilir

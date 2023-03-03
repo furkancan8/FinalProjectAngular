@@ -48,10 +48,10 @@
          <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
          <div class="product-price"><h6>{{product.unitPrice |currency}}</h6></div>
         </a>
-        <!-- <form [formGroup]="this.basketAddForm">
-          <input type="hidden" id="productId" name="productId" value="{{p.productId}}">
+        <form [formGroup]="this.basketAddForm">
+          <input type="hidden" id="productId" name="productId" value="{{product.productId}}">
       </form>
-      <button (click)="getProductId(p.productId)"  appAdd [entityAddForm]="this.basketAddForm" [entity]="'basket'" class="btn btn-out-dark btn-sm">Sepete ekle</button> -->
+      <button (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.basketAddForm" [entity]="'basket'" class="btn btn-out-dark btn-sm">Sepete ekle</button>
       </div>
     </div>
   </div>
@@ -67,6 +67,12 @@
        <div class="row" *ngIf="products.length>1 else noProducts">
         <div class="col_2"*ngFor="let product of products |filterPipe:filterText">
          <div class="product" id="first-product">
+        <div>
+          <form [formGroup]="this.favoriteAddForm">
+            <input type="hidden" id="productId" name="productId" value="{{product.productId}}">
+          </form>
+          <img (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.favoriteAddForm" [entity]="'favorite'" class="product-favorite-icon" [src]="this.defaultFavoriteImage">
+        </div>
           <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
            <img [src]="this.imageUrl+product.imagePath" class="product-img">
            <div class="product-name default-font">{{product.productName |uppercase}}</div>
@@ -79,7 +85,9 @@
       </div>
     </div>
   </div>
-
+  <div *ngIf="this.warningView" id="favorite-warning">
+    Ürün favorilere eklendi
+  </div>
 <ng-template #noProducts>
   <div class="alert alert-danger">
     NO PRODUCTS
