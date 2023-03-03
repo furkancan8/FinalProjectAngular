@@ -44,7 +44,7 @@ export class CategoryPageComponent implements OnInit{
   }
   getCategoryInPopulerProduct(categoryId:number)
   {
-    this.productService.GetCategoryInPopulerProduct(categoryId).subscribe(res=>{
+    this.productService.getCategoryInPopulerProduct(categoryId).subscribe(res=>{
       this.populerProduct=[]
       this.populerProduct.push(res.data)
     })
@@ -53,10 +53,9 @@ export class CategoryPageComponent implements OnInit{
   {
     this.categoryService.getCategoryInBrand(categoryId).subscribe(categoryres=>{
      categoryres.data.forEach(category => {
-
+      this.brand=[]
       this.categoryService.getByBrandId(category.brandId).subscribe(brandres=>{
         brandres.data.forEach(brand => {
-
           if (!this.brand.some(b => b.id === brand.id)) {
             this.brand.push(brand);
           }

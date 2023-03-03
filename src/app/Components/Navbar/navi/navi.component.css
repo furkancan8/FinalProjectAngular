@@ -26,3 +26,17 @@ input{
 #basket{
   text-align: right;
 }
+#heart-icon{
+  display: inline;
+  width: 25px;
+  height: 25px;
+  margin-top: -3px;
+}
+#heart-icon:hover{
+  src: local("https://localhost:44331/Uploads/Images/heart-icon.png");
+}
+#favorite{
+  margin-left:5px;
+  font-size: 1rem;
+  display: inline-block;
+}

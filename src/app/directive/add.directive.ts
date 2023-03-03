@@ -4,6 +4,7 @@ import { ResponseModel } from '../models/responseModel';
 import { AdminService } from '../services/User/admin.service';
 import { BasketService } from '../services/User/basket.service';
 import { ContactService } from '../services/User/contact.service';
+import { FavoriteService } from '../services/User/favorite.service';
 import { OperationclaimService } from '../services/User/operationclaim.service';
 
 @Directive({
@@ -13,7 +14,7 @@ import { OperationclaimService } from '../services/User/operationclaim.service';
 export class AddDirective {
 
   constructor(private adminService:AdminService,private operationClaimService:OperationclaimService,private contactService:ContactService
-  ,private basketService:BasketService) {}
+  ,private basketService:BasketService,private favoriteService:FavoriteService) {}
   @Input() entityAddForm:FormGroup;
   @Input() entity:string;
    @HostListener("click")
@@ -62,6 +63,14 @@ export class AddDirective {
     setTimeout(()=>{
       let entityModel=Object.assign({},this.entityAddForm.value);
       this.basketService.addBasket(entityModel).subscribe(res=>{
+        console.log(res.success)
+      })
+    },1000)
+  }else if(this.entity=="favorite")
+  {
+    setTimeout(()=>{
+      let entityModel=Object.assign({},this.entityAddForm.value);
+      this.favoriteService.addUserFavorite(entityModel).subscribe(res=>{
         console.log(res.success)
       })
     },1000)

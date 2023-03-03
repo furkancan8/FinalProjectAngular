@@ -17,7 +17,7 @@
          </div>
       </div>
     </div>
-    <div (click)="removeCategoryClass()" id="delete-div"><img id="delete-icon" [src]="this.closeIcon"></div>
+    <div *ngIf="this.sideCategories.length>0" (click)="removeCategoryClass()" id="delete-div"><img id="delete-icon" [src]="this.closeIcon"></div>
    </div>
  </div>
 

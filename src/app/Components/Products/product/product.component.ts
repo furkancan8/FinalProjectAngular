@@ -3,26 +3,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product/product';
 import { ProductService } from 'src/app/services/Product/product.service';
 import { CardService } from 'src/app/services/Product/card.service';
-import { ThisReceiver } from '@angular/compiler';
-import { AuthService } from 'src/app/services/User/auth.service';
 import { ProductImgService } from 'src/app/services/Product/product-img.service';
 import { ProductImg } from 'src/app/models/Product/productImg';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BasketService } from 'src/app/services/User/basket.service';
 import { SideCategory } from 'src/app/models/Product/sideCateogry';
 
-
-
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
-  providers:[ProductService,CardService]
+  providers:[ProductService,CardService],
 })
 export class ProductComponent implements OnInit{
   id=localStorage.getItem("i_u");
   userId=parseInt(this.id);
   dataLoaded=false;
+  warningView:boolean=false;
   product:ProductImg[]=[]
   products:Product[]=[]
   productsPop:Product[]=[]
@@ -33,6 +30,11 @@ export class ProductComponent implements OnInit{
   imageUrl:string="https://localhost:44331/Uploads/Images/";
   sideCategory:SideCategory
   basketAddForm:FormGroup
+  favoriteAddForm:FormGroup
+  //------ Icons
+  defaultFavoriteImage:string="https://localhost:44331/Uploads/Images/heart-product-white.png";
+  productFavoriteImage:string="https://localhost:44331/Uploads/Images/heart-product-";
+  ImgSource:string[]=[this.productFavoriteImage+"white.png",this.productFavoriteImage+"black.png"]
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute
     ,private cartService:CardService,private productImgService:ProductImgService,private formsBuilder:FormBuilder,
     private basketService:BasketService){}
@@ -49,9 +51,8 @@ export class ProductComponent implements OnInit{
       }
     })
     this.getPopProductFirstTen();
-    // this.getProductImg(1);
     this.createBasketAddForm()
-    // this.getAllProductImg()
+    this.createFavoriteAddForm()
   }
   getProducts(){
     this.productService.getProducts().subscribe(products=>{
@@ -87,6 +88,8 @@ export class ProductComponent implements OnInit{
     this.productsPop=res.data
     })
   }
+
+  //----------- Imgs
   getProductImg(productId:number){
     this.productImgService.getProductImages(productId).subscribe(res=>{
      this.productImg=res.data
@@ -107,10 +110,24 @@ export class ProductComponent implements OnInit{
     let url:string = "https://localhost:44331/Uploads/Images/star-"+startValue+".png" ;
     return url;
   }
+  changeFavoriteImg()
+  {
+    return this.defaultFavoriteImage=this.ImgSource[1]
+  }
+  resetFavoriteImg()
+  {
+    return this.defaultFavoriteImage=this.ImgSource[0]
+  }
+  //------------------- formlar
   getProductId(productId:number)
   {
     this.productid=productId;
     this.createBasketAddForm()
+    this.createFavoriteAddForm()
+    this.warningView=true
+    setTimeout(() => {
+      this.warningView=false
+    }, 1500);
   }
   createBasketAddForm(){
       this.basketAddForm=this.formsBuilder.group({
@@ -118,5 +135,12 @@ export class ProductComponent implements OnInit{
       productId:[this.productid,[Validators.required, Validators.pattern('^[0-9]+$')]],
      })
      this.basketAddForm.get('productId').setValue(this.productid);
+  }
+  createFavoriteAddForm(){
+    this.favoriteAddForm=this.formsBuilder.group({
+      userId:[this.userId,Validators.required],
+      productId:[this.productid,[Validators.required, Validators.pattern('^[0-9]+$')]],
+    })
+    this.favoriteAddForm.get('productId').setValue(this.productid);
   }
 }

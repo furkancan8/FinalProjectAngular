@@ -3,14 +3,18 @@
       <div class="col-2">
         <h1>Trendyo</h1>
       </div>
-      <div class="col-6" id="search-input">
-          <div>
-            <input [(ngModel)]="filterText" id="filterText"  placeholder="Aradığınız ürünü veya kategoriyi buraya yazınız">
+      <div class="col-5" id="search-input">
+          <div >
+            <input (keydown.enter)="submit()" [(ngModel)]="filterText" id="filterText"  placeholder="Aradığınız ürünü veya kategoriyi buraya yazınız">
+            <button routerLink="/product" #productLink style="display: none;"></button>
           </div>
       </div>
       <div class="col-2" id="basket"><a routerLink="/basket">Sepet</a></div>
-      <div class="col-1">
-          Favoriler
+      <div class="col-2" (mouseenter)="changeImg()" (mouseleave)="resetImg()">
+        <a routerLink="/userFavorite">
+        <img id="heart-icon"  [src]="this.defaultHeartFavorite">
+        <h1 id="favorite">Favoriler</h1>
+      </a>
       </div>
       <div class="col-1">
         <div class="nav-item dropdown" *ngIf="IsActive==false">

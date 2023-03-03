@@ -1,0 +1,29 @@
+<div id="favorite-cap">
+    <img id="heart-icon" [src]="this.heartFavoriteIcon">
+    <h1 id="favorite">Favoriler</h1>
+</div>
+
+<div class="latest-products">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+          </div>
+        </div>
+       <div class="row">
+        <div class="col_2"*ngFor="let product of userFavoriteProduct |filterPipe:filterText">
+         <div class="product" id="first-product">
+          <button (click)="deleteFavoriteProduct(product.productId)" type="button" class="close custom-modal-close-button" >&times;</button>
+          <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
+           <img [src]="this.imageUrl+product.imagePath" class="product-img">
+           <div class="product-name default-font">{{product.productName |uppercase}}</div>
+           <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+           <div class="product-price"><h6>{{product.unitPrice |currency}}</h6></div>
+          </a>
+        </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+

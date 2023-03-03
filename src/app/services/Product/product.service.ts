@@ -42,9 +42,14 @@ export class ProductService {
     let newPath=this.apiUrl+"products/getpopcategoryfirst";
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
   }
-  GetCategoryInPopulerProduct(categoryId:number):Observable<SingleResponseModel<Product>>
+  getCategoryInPopulerProduct(categoryId:number):Observable<SingleResponseModel<Product>>
   {
     let newPath=this.apiUrl+"products/getcategoryinpopulerproduct?categoryId="+categoryId;
     return this.httpClient.get<SingleResponseModel<Product>>(newPath);
+  }
+  getAllProductForName(searchName:string):Observable<ListResponseModel<Product>>
+  {
+    let newPath=this.apiUrl+"produts/getallproductforname?searchName="+searchName;
+    return this.httpClient.get<ListResponseModel<Product>>(newPath);
   }
 }
