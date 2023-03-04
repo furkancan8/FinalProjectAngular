@@ -23,6 +23,7 @@ export class ProductComponent implements OnInit{
   product:ProductImg[]=[]
   products:Product[]=[]
   productsPop:Product[]=[]
+  productPhone:Product[]=[]
   productid:number
   productImg:ProductImg[]=[]
   productImg2:ProductImg[]=[]
@@ -35,6 +36,8 @@ export class ProductComponent implements OnInit{
   defaultFavoriteImage:string="https://localhost:44331/Uploads/Images/heart-product-white.png";
   productFavoriteImage:string="https://localhost:44331/Uploads/Images/heart-product-";
   ImgSource:string[]=[this.productFavoriteImage+"white.png",this.productFavoriteImage+"black.png"]
+  freeCargo:string="https://localhost:44331/Uploads/Images/kargo-bedava.png"
+  fastCargo:string="https://localhost:44331/Uploads/Images/hızlı-kargo.png"
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute
     ,private cartService:CardService,private productImgService:ProductImgService,private formsBuilder:FormBuilder,
     private basketService:BasketService){}
@@ -53,6 +56,7 @@ export class ProductComponent implements OnInit{
     this.getPopProductFirstTen();
     this.createBasketAddForm()
     this.createFavoriteAddForm()
+    this.getProductForNamePhone()
   }
   getProducts(){
     this.productService.getProducts().subscribe(products=>{
@@ -88,7 +92,14 @@ export class ProductComponent implements OnInit{
     this.productsPop=res.data
     })
   }
-
+  IsProductDiscount(product:Product)
+  {
+    if(product.discount>0)
+    {
+      return "line-tag"
+    }
+    return ""
+  }
   //----------- Imgs
   getProductImg(productId:number){
     this.productImgService.getProductImages(productId).subscribe(res=>{
@@ -142,5 +153,12 @@ export class ProductComponent implements OnInit{
       productId:[this.productid,[Validators.required, Validators.pattern('^[0-9]+$')]],
     })
     this.favoriteAddForm.get('productId').setValue(this.productid);
+  }
+  getProductForNamePhone()
+  {
+    this.productService.getAllProductForName("asd").subscribe(res=>{
+     this.productPhone=res.data
+     console.log(this.productPhone)
+    })
   }
 }

@@ -42,16 +42,21 @@
     <h1>En Popüler Ürünlerimiz</h1>
     <div class="col-md-3" *ngFor="let product of productsPop|filterPipe:filterText">
       <div class="product" id="first-product">
+        <div id="cargo-icon-cap">
+          <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
+          <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
+      </div>
         <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
          <img [src]="this.imageUrl+product.imagePath" class="product-img">
          <div class="product-name default-font">{{product.productName |uppercase}}</div>
          <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
-         <div class="product-price"><h6>{{product.unitPrice |currency}}</h6></div>
+         <div [ngClass]="IsProductDiscount(product)" class="product-price"><h6>{{product.unitPrice}} TL</h6></div>
+         <div *ngIf="product.discount>0" class="product-price price-discount"><h6>{{product.unitPrice |discount:product.discount}} TL</h6></div>
         </a>
-        <form [formGroup]="this.basketAddForm">
+        <!-- <form [formGroup]="this.basketAddForm">
           <input type="hidden" id="productId" name="productId" value="{{product.productId}}">
       </form>
-      <button (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.basketAddForm" [entity]="'basket'" class="btn btn-out-dark btn-sm">Sepete ekle</button>
+      <button (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.basketAddForm" [entity]="'basket'" class="btn btn-out-dark btn-sm">Sepete ekle</button> -->
       </div>
     </div>
   </div>
@@ -73,11 +78,16 @@
           </form>
           <img (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.favoriteAddForm" [entity]="'favorite'" class="product-favorite-icon" [src]="this.defaultFavoriteImage">
         </div>
+        <div id="cargo-icon-cap">
+          <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
+          <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
+      </div>
           <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
            <img [src]="this.imageUrl+product.imagePath" class="product-img">
            <div class="product-name default-font">{{product.productName |uppercase}}</div>
            <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
-           <div class="product-price"><h6>{{product.unitPrice |currency}}</h6></div>
+           <div [ngClass]="IsProductDiscount(product)" class="product-price"><h6>{{product.unitPrice}} TL</h6></div>
+           <div *ngIf="product.discount>0" class="product-price price-discount"><h6>{{product.unitPrice |discount:product.discount}} TL</h6></div>
           </a>
         </div>
         </div>
