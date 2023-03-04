@@ -16,6 +16,8 @@ export class FavoriteProductComponent implements OnInit{
   userFavorite:Favorite[]=[]
   imageUrl:string="https://localhost:44331/Uploads/Images/";
   heartFavoriteIcon:string="https://localhost:44331/Uploads/Images/heart-favorite-red.png";
+  freeCargo:string="https://localhost:44331/Uploads/Images/kargo-bedava.png"
+  fastCargo:string="https://localhost:44331/Uploads/Images/hızlı-kargo.png"
   constructor(private favoriteService:FavoriteService,private productService:ProductService) {
 
   }
@@ -52,6 +54,14 @@ export class FavoriteProductComponent implements OnInit{
     });
    const deleteProductIndex=this.userFavoriteProduct.findIndex(i=>i.productId==id)//metodu araştır
     this.userFavoriteProduct.splice(deleteProductIndex,1);//metodu iyice araştır ögren,slice da dahil
+  }
+  IsProductDiscount(product:Product)
+  {
+    if(product.discount>0)
+    {
+      return "line-tag"
+    }
+    return ""
   }
 }
 

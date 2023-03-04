@@ -9,5 +9,8 @@ export interface Product{
     reviews:number;
     sellCount:number;
     startCount:number;
+    discount:number;
     imagePath:number;
+    freeCargo:boolean;
+    fastCargo:boolean;
 }

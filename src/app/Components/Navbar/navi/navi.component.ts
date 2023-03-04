@@ -50,7 +50,6 @@ export class NaviComponent implements OnInit{
   submit()
   {
     const kelimeler=[this.filterText.split(' ').join('+')]
-    console.log(kelimeler)
     this.productLink.nativeElement.click();
     this.router.navigate(['/product'], { queryParams: { src: JSON.stringify(kelimeler) } });
   }

@@ -49,7 +49,7 @@ export class ProductService {
   }
   getAllProductForName(searchName:string):Observable<ListResponseModel<Product>>
   {
-    let newPath=this.apiUrl+"produts/getallproductforname?searchName="+searchName;
+    let newPath=this.apiUrl+"products/getallproductforname?searchName="+searchName;
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
   }
 }

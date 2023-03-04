@@ -34,6 +34,8 @@ import { BasketComponent } from './Components/Navbar/basket/basket.component';
 import { CategoryPageComponent } from './Components/Products/category-page/category-page.component';
 import { FavoriteProductComponent } from './Components/Products/favorite-product/favorite-product.component';
 import { ProductPageComponent } from './Components/Products/product-page/product-page.component';
+import { ProductDiscountPipe } from './pipes/product-discount.pipe';
+import { HomePageSectionComponent } from './Components/Products/home-page-section/home-page-section.component';
 @NgModule({
   //kendi projemizdeki componentler
   declarations: [
@@ -64,6 +66,8 @@ import { ProductPageComponent } from './Components/Products/product-page/product
     CategoryPageComponent,
     FavoriteProductComponent,
     ProductPageComponent,
+    ProductDiscountPipe,
+    HomePageSectionComponent,
   ],
   //dışardan aldıgımız moduller
   imports: [

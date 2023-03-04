@@ -2,12 +2,23 @@
     <div id="cap"  [style.background-image]="'url(' + getImageSource() + ')'">
       <div id="cap_product">
         <div id="cap-row">
-          <div class="product" *ngFor="let p of productCamera">
+          <div class="product" *ngFor="let product of productCamera">
+            <div>
+              <form [formGroup]="this.favoriteAddForm">
+                <input type="hidden" id="productId" name="productId" value="{{product.productId}}">
+              </form>
+              <img (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.favoriteAddForm" [entity]="'favorite'" class="product-favorite-icon" [src]="this.defaultFavoriteImage">
+            </div>
+            <div id="cargo-icon-cap">
+              <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
+              <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
+          </div>
             <a>
-              <img [src]="this.imageUrl+p.imagePath" class="product-img">
-             <div class="product-p default-font"><p>{{p.productName}}</p></div>
-             <div><img [src]="getStartImage(p.startCount)" class="product-starts"> <span class="product-reviews">{{p.reviews}}</span></div>
-             <div class="product-price"><h4>{{p.unitPrice}}<span class="product-price-unit">TL</span></h4></div>
+              <img [src]="this.imageUrl+product.imagePath" class="product-img">
+             <div class="product-p default-font"><p>{{product.productName}}</p></div>
+             <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+             <div [ngClass]="IsProductDiscount(product)" class="product-price"><h6>{{product.unitPrice}}<span class="product-price-unit">TL</span></h6></div>
+             <div class="product-price price-discount"><h4>{{product.unitPrice |discount:product.discount}}<span class="product-price-unit">TL</span></h4></div>
             </a>
           </div>
         </div>
