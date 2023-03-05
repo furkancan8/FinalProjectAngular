@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit{
   loginForm:FormGroup;
   userId:string;
   id = localStorage.getItem("i_u");
+  loginError:boolean=false;
   constructor(private formbuilder:FormBuilder,private authService:AuthService,private route:Router,private userService:UserService) {}
   ngOnInit(): void {
     this.createloginForm();
@@ -29,10 +30,11 @@ export class LoginComponent implements OnInit{
       this.authService.login(loginModel).subscribe({
         next:(response)=>{
          localStorage.setItem("token",response.data.token)
-         console.log(response.data)
+         console.log(response.success)
         },//tarayıcıya token'i ekler.appications-localstroge
          error:(errorResponse)=>{
           console.log(errorResponse)
+          this.loginError=true
          },
          complete:()=>{
           window.location.replace('http://localhost:4200/products')

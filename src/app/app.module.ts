@@ -36,6 +36,7 @@ import { FavoriteProductComponent } from './Components/Products/favorite-product
 import { ProductPageComponent } from './Components/Products/product-page/product-page.component';
 import { ProductDiscountPipe } from './pipes/product-discount.pipe';
 import { HomePageSectionComponent } from './Components/Products/home-page-section/home-page-section.component';
+import { UserAccountSidebarComponent } from './Components/User/user-account-sidebar/user-account-sidebar.component';
 @NgModule({
   //kendi projemizdeki componentler
   declarations: [
@@ -68,6 +69,7 @@ import { HomePageSectionComponent } from './Components/Products/home-page-sectio
     ProductPageComponent,
     ProductDiscountPipe,
     HomePageSectionComponent,
+    UserAccountSidebarComponent,
   ],
   //dışardan aldıgımız moduller
   imports: [

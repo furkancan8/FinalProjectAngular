@@ -49,8 +49,6 @@ export class ProductComponent implements OnInit{
         this.getSideCategoryForProduct(params["categoryId"],params["sCategoryId"])
       }else if(params["categoryId"]){
         this.getProductsByCategory(params["categoryId"])
-      }else{
-        this.getProducts()
       }
     })
     this.getPopProductFirstTen();

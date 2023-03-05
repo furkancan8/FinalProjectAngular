@@ -1,3 +1,14 @@
+#populer-product-cap{
+  margin-bottom: 75px;
+}
+#populer-product{
+  width: 13.5rem!important;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+#populer-product-title{
+  margin-left: 13px;
+}
 .product{
   position: relative;
   margin-left:15px;
