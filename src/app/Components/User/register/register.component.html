@@ -1,4 +1,4 @@
-<main class="form-signin w-100 m-auto">
+<!-- <main class="form-signin w-100 m-auto">
     <form [formGroup]="registerForm">
       <h1 class="h3 mb-3 fw-normal">Kayıt Ol</h1>
 
@@ -38,4 +38,36 @@
       </div>
       <button (click)="register()" class="w-100 btn btn-lg btn-primary">Kayıt Ol</button>
     </form>
-  </main>
+  </main> -->
+<!-- /-------------------- -->
+<main>
+  <h2 id="login-title-first">MERHABA</h2>
+  <h3 id="login-title">Trendyol'da<strong> hesap oluştur </strong>,fırsatları kaçırma</h3>
+  <div id="login-cap">
+    <div style="opacity: 0;;margin-top: 15px;">""</div>
+    <div *ngIf="this.loginError" id="warning-error-login">
+      <h6>Bu E-posta adresi zaten kullanılıyor</h6>
+    </div>
+    <form [formGroup]="registerForm">
+      <div id="form-eposta-cap">
+        <label class="forms-title">E-Posta</label>
+        <input type="email"
+        formControlName="email"
+         class="forms"
+         id="form-eposta"
+         placeholder="E-Posta" #email>
+      </div>
+      <div>
+        <label class="forms-title">Şifre</label>
+        <input type="password"
+        formControlName="password"
+          class="forms"
+          id="form-password"
+           placeholder="Şifre">
+      </div>
+      <div>
+        <button (click)="register()" id="login-btn">Kayıt ol</button>
+      </div>
+    </form>
+  </div>
+</main>

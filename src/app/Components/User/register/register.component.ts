@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/User/auth.service';
 })
 export class RegisterComponent implements OnInit{
    registerForm:FormGroup;
+   loginError:boolean=false;
   constructor(private authService:AuthService,private formBuilder:FormBuilder,private router:Router) {
 
   }
@@ -20,8 +21,6 @@ export class RegisterComponent implements OnInit{
   }
   createRegisterForm(){
   this.registerForm=this.formBuilder.group({
-     firstName:["",Validators.required],
-     lastName:["",Validators.required],
      email:["",Validators.required],
      password:["",Validators.required]
   })
@@ -39,6 +38,7 @@ export class RegisterComponent implements OnInit{
        },
        error:(resnpose)=>{
         console.log(resnpose);
+        this.loginError=true
        }
       })
     }

@@ -1,1 +1,122 @@
-<p>home-page-section works!</p>
+<!-- TELEFON -->
+<div id="title-cap">
+    <div id="title">Telefonla ilgili ürünler</div>
+</div>
+<div class="product-cap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+          </div>
+        </div>
+       <div class="row" >
+        <div class="col-2"*ngFor="let product of productPhone |filterPipe:filterText">
+         <div class="product" id="first-product">
+        <div>
+          <form [formGroup]="this.favoriteAddForm">
+            <input type="hidden" id="productId" name="productId" value="{{product.productId}}">
+          </form>
+          <img (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.favoriteAddForm" [entity]="'favorite'" class="product-favorite-icon" [src]="this.defaultFavoriteImage">
+        </div>
+        <div id="cargo-icon-cap">
+          <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
+          <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
+      </div>
+          <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
+           <img [src]="this.imageUrl+product.imagePath" class="product-img">
+           <div class="product-name default-font">{{product.productName |uppercase}}</div>
+           <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+           <div [ngClass]="IsProductDiscount(product)" class="product-price"><h6>{{product.unitPrice}} TL</h6></div>
+           <div *ngIf="product.discount>0" class="product-price price-discount"><h6>{{product.unitPrice |discount:product.discount}} TL</h6></div>
+          </a>
+        </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="this.warningView" id="favorite-warning">
+    Ürün favorilere eklendi
+  </div>
+
+  <!-- KİTAP -->
+  <div id="title-cap">
+    <div id="title">Kitap ilgili ürünler</div>
+</div>
+<div class="product-cap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+          </div>
+        </div>
+       <div class="row" >
+        <div class="col-2"*ngFor="let product of productBook |filterPipe:filterText">
+         <div class="product" id="first-product">
+        <div>
+          <form [formGroup]="this.favoriteAddForm">
+            <input type="hidden" id="productId" name="productId" value="{{product.productId}}">
+          </form>
+          <img (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.favoriteAddForm" [entity]="'favorite'" class="product-favorite-icon" [src]="this.defaultFavoriteImage">
+        </div>
+        <div id="cargo-icon-cap">
+          <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
+          <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
+      </div>
+          <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
+           <img [src]="this.imageUrl+product.imagePath" class="product-img">
+           <div class="product-name default-font">{{product.productName |uppercase}}</div>
+           <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+           <div [ngClass]="IsProductDiscount(product)" class="product-price"><h6>{{product.unitPrice}} TL</h6></div>
+           <div *ngIf="product.discount>0" class="product-price price-discount"><h6>{{product.unitPrice |discount:product.discount}} TL</h6></div>
+          </a>
+        </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="this.warningView" id="favorite-warning">
+    Ürün favorilere eklendi
+  </div>
+
+  <!-- POPÜLER ÜRÜNLER -->
+  <div id="title-cap">
+    <div id="title">En popüler ürünler</div>
+</div>
+<div class="product-cap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+          </div>
+        </div>
+       <div class="row" >
+        <div class="col-2"*ngFor="let product of veryReviewsProduct |filterPipe:filterText">
+         <div class="product" id="first-product">
+        <div>
+          <form [formGroup]="this.favoriteAddForm">
+            <input type="hidden" id="productId" name="productId" value="{{product.productId}}">
+          </form>
+          <img (click)="getProductId(product.productId)"  appAdd [entityAddForm]="this.favoriteAddForm" [entity]="'favorite'" class="product-favorite-icon" [src]="this.defaultFavoriteImage">
+        </div>
+        <div id="cargo-icon-cap">
+          <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
+          <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
+      </div>
+          <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
+           <img [src]="this.imageUrl+product.imagePath" class="product-img">
+           <div class="product-name default-font">{{product.productName |uppercase}}</div>
+           <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+           <div [ngClass]="IsProductDiscount(product)" class="product-price"><h6>{{product.unitPrice}} TL</h6></div>
+           <div *ngIf="product.discount>0" class="product-price price-discount"><h6>{{product.unitPrice |discount:product.discount}} TL</h6></div>
+          </a>
+        </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="this.warningView" id="favorite-warning">
+    Ürün favorilere eklendi
+  </div>

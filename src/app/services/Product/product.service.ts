@@ -52,4 +52,9 @@ export class ProductService {
     let newPath=this.apiUrl+"products/getallproductforname?searchName="+searchName;
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
   }
+  getVeryReviewsProduct():Observable<ListResponseModel<Product>>
+  {
+    let newPath=this.apiUrl+"products/getveryreviewsproduct";
+    return this.httpClient.get<ListResponseModel<Product>>(newPath);
+  }
 }

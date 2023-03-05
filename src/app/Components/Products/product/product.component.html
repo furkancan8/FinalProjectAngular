@@ -36,12 +36,13 @@
 </table> -->
 <app-product-section1></app-product-section1>
 <app-product-section2></app-product-section2>
+<app-home-page-section></app-home-page-section>
 
-<section>
+<section id="populer-product-cap">
   <div class="row">
-    <h1>En Popüler Ürünlerimiz</h1>
-    <div class="col-md-3" *ngFor="let product of productsPop|filterPipe:filterText">
-      <div class="product" id="first-product">
+    <h1 id="populer-product-title">En çok satan ürünlerimiz</h1>
+    <div class="col_2" *ngFor="let product of productsPop|filterPipe:filterText">
+      <div class="product" id="populer-product">
         <div id="cargo-icon-cap">
           <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
           <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
@@ -69,7 +70,7 @@
           <div class="section-heading">
           </div>
         </div>
-       <div class="row" *ngIf="products.length>1 else noProducts">
+       <div class="row">
         <div class="col_2"*ngFor="let product of products |filterPipe:filterText">
          <div class="product" id="first-product">
         <div>
@@ -98,8 +99,9 @@
   <div *ngIf="this.warningView" id="favorite-warning">
     Ürün favorilere eklendi
   </div>
-<ng-template #noProducts>
+<!-- <ng-template #noProducts>
+   *ngIf="products.length>1 else noProducts"
   <div class="alert alert-danger">
     NO PRODUCTS
   </div>
-</ng-template>
+</ng-template> -->
