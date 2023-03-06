@@ -1,0 +1,122 @@
+#user-info{
+    border: 1px rgb(188, 188, 188) solid;
+    border-radius: 5px;
+    padding: 25px;
+    margin-top: 25px;
+    -webkit-box-shadow: -5px 8px 9px -1px rgba(140, 138, 138, 0.3), 0px -8px 9px -1px rgba(140, 138, 138, 0.3);
+    box-shadow: -5px 8px 9px -1px rgba(140, 138, 138, 0.3), 0px -8px 9px -1px rgba(140, 138, 138, 0.3);
+}
+#user-info-h{
+    margin-top: 25px;
+    color:var(--main-color)
+}
+.title{
+    color:var(--main-color)
+}
+#login-cap{
+ width: 100%;
+ height: 90vh;
+}
+.forms{
+    display: block;
+    padding: 7px;
+    background-color: rgb(251, 251, 251);
+    border-radius: 5px;
+    border: 1px rgb(197, 197, 197) solid;
+}
+.label{
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.select-input{
+    width: 135px!important;
+    height: 40px!important;
+    border-radius:5px!important;
+    background-color: rgb(251, 251, 251);
+    border: 1px rgb(197, 197, 197) solid;
+    padding-left: 10px;
+}
+
+#first-input-section{
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+#second-input-section {
+margin-bottom: 25px;
+}
+#second-input-section input{
+width: 95%;
+}
+#third-input-section{
+margin-bottom: 35px;
+}
+#third-input-section input{
+width: 60%;
+}
+#fourth-input-section{
+    margin-bottom: 25px;
+}
+.date{
+padding: 0!important;
+}
+.date:first-child{
+padding-left:10px!important;
+}
+#month-div{
+ margin-right: -10px!important;
+}
+#fifth-input-section div{
+  width: 120px;
+  display: inline;
+}
+#fifth-input-section input{
+  width: 20px!important;
+  height: 20px;
+  background-color: rgb(251, 251, 251)!important;
+  border: 5px rgb(197, 197, 197) solid;
+  border-radius: 10px!important;
+}
+#fifth-input-section h6{
+    display: inline!important;
+    margin-left:10px;
+    margin-right: 15px;
+    vertical-align: top;
+}
+.btn-div{
+    margin-top: 25px;
+}
+.update-btn{
+    width: 450px;
+    height: 50px;
+    font-size: 20px;
+    color:white;
+    background-color: var(--btn-color);
+    border: none;
+    border-radius: 5px;
+}
+/* PASSWORD--------------------  */
+#password-update-cap{
+border: 1px rgb(188, 188, 188) solid;
+    border-radius: 5px;
+    padding: 25px;
+    margin-top: 25px;
+    -webkit-box-shadow: 5px -8px 9px -1px rgba(140, 138, 138, 0.3), 0px 8px 9px -1px rgba(140, 138, 138, 0.3);
+    box-shadow: 5px -8px 9px -1px rgba(140, 138, 138, 0.3), 0px 8px 9px -1px rgba(140, 138, 138, 0.3);
+}
+.password_forms{
+    width: 450px!important;
+    margin-bottom: 30px;
+}
+#new-password input{
+    margin-bottom: 5px!important;
+}
+#new-password p{
+  font-size: 12.8px;
+}
+#password-btn-div{
+  margin-top: 110px!important;
+}
+.warning-password{
+    color:var(--main-color)
+}
