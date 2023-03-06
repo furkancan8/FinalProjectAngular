@@ -1,9 +1,84 @@
-<div class="row">
- <div style="background-color: blue;" class="col-3">
-
+<div class="row" id="login-cap">
+ <div class="col-3">
+   <app-user-account-sidebar></app-user-account-sidebar>
  </div>
- <div style="background-color: red;" class="col-9">
-
+ <div class="col-9">
+  <div>
+    <h4 id="user-info-h">Kullanıcı bilgileri</h4>
+  </div>
+  <div class="row">
+    <div id="user-info" class="col-6">
+      <h6 class="title">Üye Bilgileri</h6>
+       <div id="first-input-section" class="row">
+         <div class="col-6">
+           <label class="label">Ad</label>
+           <input class="forms">
+         </div>
+         <div class="col-6">
+           <label class="label">Soyad</label>
+           <input class="forms">
+        </div>
+       </div>
+       <div id="second-input-section">
+          <div>
+            <label class="label">E-Posta</label>
+            <input class="forms">
+          </div>
+       </div>
+       <div id="third-input-section">
+        <div>
+          <label class="label">Cep Telefonu</label>
+          <input class="forms">
+        </div>
+       </div>
+       <div id="fourth-input-section" class="row">
+          <div class="col-4 date">
+            <select name="day" class="select-input">
+              <option  disabled selected >Gün</option>
+              <option  *ngFor="let day of days" [value]="day">{{ day }}</option>
+            </select>
+          </div>
+          <div class="col-4 date" id="month-div">
+            <select name="month" class="select-input">
+              <option disabled selected >Ay</option>
+              <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+            </select>
+          </div>
+          <div class="col-4 date">
+            <select name="year" class="select-input">
+              <option disabled selected >Yıl</option>
+              <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+          </div>
+       </div>
+       <div id="fifth-input-section">
+        <div><input (change)="checkMale()" id="checkbox-male" name="checkbox-male" type="checkbox"></div><h6>Erkek</h6>
+        <div><input (change)="checkFamela()" id="checkbox-famela" name="checkbox-famela" type="checkbox"></div><h6>Kadın</h6>
+       </div>
+       <div class="btn-div">
+        <button class="update-btn">Güncelle</button>
+       </div>
+    </div>
+    <div class="col-6" id="password-update-cap">
+     <h6 class="title mb-3">Şifre Güncelle</h6>
+      <div id="now-password">
+        <label class="label">Şu Anki Şifre</label>
+        <input class="forms password_forms">
+      </div>
+      <div id="new-password">
+        <label class="label">Yeni Şifre</label>
+        <input class="forms password_forms">
+        <p>Şifreniz<strong class="warning-password"> en az 7 karakter </strong> ve<strong class="warning-password"> en fazla 64 karakter</strong>  olmalı, harf ve rakam içermelidir.</p>
+      </div>
+      <div id="new-again-password">
+        <label class="label">Yeni Şifre(Tekrar)</label>
+        <input class="forms password_forms">
+      </div>
+      <div class="btn-div" id="password-btn-div">
+        <button class="update-btn">Güncelle</button>
+      </div>
+    </div>
+  </div>
  </div>
 </div>
 
@@ -37,7 +112,6 @@
     <li>number:{{p.number}}</li>
     <li>tarih:{{p.dateOfBirth}}</li>
     <li>adres:{{p.address}}</li>
-
 </ul>
 
 <ul>

@@ -18,6 +18,11 @@ export class UserInfoComponent implements OnInit{
   District:District[]=[]
   filterDistrict:District[]=[]
   cityId:any=''
+  days: number[] = Array.from({length: 31}, (_, i) => i + 1);
+  months: number[] = Array.from({length: 12}, (_, i) => i + 1);
+  years: number[] = Array.from({length: 123}, (_, i) => 2023 - i);
+  checkboxMale = document.getElementById('checkbox-male') as HTMLInputElement;
+  checkboxFamela = document.getElementById('checkbox-famela') as HTMLInputElement;
    constructor(private userService:UserService) {
 
    }
@@ -47,4 +52,20 @@ export class UserInfoComponent implements OnInit{
       this.District=res.data
     })
    }
+   checkMale()
+   {
+    const checkboxMale = document.getElementById('checkbox-male') as HTMLInputElement;
+    const checkboxFamela = document.getElementById('checkbox-famela') as HTMLInputElement;
+    if (checkboxMale.checked) {
+      checkboxFamela.checked = false;
+   }
+  }
+  checkFamela()
+  {
+    const checkboxMale = document.getElementById('checkbox-male') as HTMLInputElement;
+    const checkboxFamela = document.getElementById('checkbox-famela') as HTMLInputElement;
+    if (checkboxFamela.checked) {
+      checkboxMale.checked = false;
+   }
+  }
 }
