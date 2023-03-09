@@ -114,9 +114,40 @@ border: 1px rgb(188, 188, 188) solid;
 #new-password p{
   font-size: 12.8px;
 }
+#now-password-warning{
+    margin-top: -20px;
+}
+.password_input-little-margin{
+ margin-bottom: 10px!important;
+}
 #password-btn-div{
   margin-top: 110px!important;
 }
 .warning-password{
     color:var(--main-color)
+}
+.border-warning{
+    border: 1.5px rgb(254, 40, 40) solid!important;
+    background-color: rgba(255, 0, 0, 0.349);
+}
+.no-some-password-warning{
+    color:rgb(254, 40, 40);
+    display: inline-block;
+    font-size: 12.8px;
+    position: absolute;
+}
+.change-password-success-warning{
+    display: inline-block;
+    position: absolute;
+    height:45px!important;
+    width: 450px;
+    font-size: 15px;
+    color: rgba(41, 127, 19, 0.905);
+    background-color:rgba(178, 255, 172, 0.747) ;
+    border: 2px rgb(103, 255, 149) solid!important;
+    border-radius:5px ;
+}
+.change-password-success-warning h6{
+    text-align: center;
+    margin-top: 10px;
 }

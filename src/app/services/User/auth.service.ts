@@ -11,6 +11,9 @@ import { User } from '../../models/User/user';
 })
 export class AuthService {
   apiUrl="https://localhost:44331/api/auth/";
+  verifyPassword:boolean=false;
+  IsTrueNowPassword:boolean=false
+  IsChangePassword:boolean=false
   constructor(private httpClient:HttpClient) {}
 
   login(loginModel:LoginModel){
@@ -38,5 +41,13 @@ export class AuthService {
     else{
       return false;
     }
+  }
+  changePassword(registerModel:RegisterModel,id:number):Observable<SingleResponseModel<TokenModel>>
+  {
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"changepassword?id="+id,registerModel)
+  }
+  verifyPasswordUser(loginModel:LoginModel):Observable<SingleResponseModel<LoginModel>>
+  {
+    return this.httpClient.post<SingleResponseModel<LoginModel>>(this.apiUrl+"verifypassword",loginModel)
   }
 }

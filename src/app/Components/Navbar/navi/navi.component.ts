@@ -40,11 +40,9 @@ export class NaviComponent implements OnInit{
    }
   }
   changeImg(){
-    console.log(this.defaultHeartFavorite)
     return this.defaultHeartFavorite=this.imgSource[1]
   }
   resetImg(){
-    console.log(this.defaultHeartFavorite)
     return  this.defaultHeartFavorite=this.imgSource[0]
   }
   submit()

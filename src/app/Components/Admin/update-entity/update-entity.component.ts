@@ -53,6 +53,7 @@ export class UpdateEntityComponent implements OnInit {
   {
     if(this.productFormGroup.valid)
     {
+
       let productModel=Object.assign({},this.productFormGroup.value)
       this.adminService.updateProduct(productId,productModel).subscribe(response=>{
           console.log(response.success)

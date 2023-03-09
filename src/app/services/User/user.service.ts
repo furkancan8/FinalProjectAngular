@@ -6,6 +6,7 @@ import { District } from '../../models/User/district';
 import { ListResponseModel } from '../../models/listResponseModel';
 import { SingleResponseModel } from '../../models/singleResponseModel';
 import { User } from '../../models/User/user';
+import { ResponseModel } from 'src/app/models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,10 @@ export class UserService {
   {
     var newPath=this.apiUrl+"getalldistrict";
     return this.httpClient.get<ListResponseModel<District>>(newPath)
+  }
+  update(user:User,id:number):Observable<ResponseModel>
+  {
+    var newPath=this.apiUrl+"update?id="+id;
+    return this.httpClient.post<ResponseModel>(newPath,user)
   }
 }
