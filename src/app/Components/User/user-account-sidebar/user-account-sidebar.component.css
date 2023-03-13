@@ -11,13 +11,18 @@
     margin-bottom: 15px;
     margin-right: 50px;
     margin-left: 50px;
-    box-shadow:0px 8px 13px -7px rgb(193, 193, 193) ;
+    box-shadow:0px 8px 13px -7px rgba(108, 108, 108, 0.671) ;
     border-bottom: 1px rgb(205, 205, 205) solid;
     border-radius: 5px;
 }
 .cap_section:hover{
-   border: 2px solid rgb(175, 175, 175);
+    box-shadow:0px 8px 13px -7px rgba(0, 0, 0, 0.9) ;
 }
 .cap_section p{
     margin-top: 3px;
+}
+#cap_title{
+    color:var(--title-color);
+    margin-left: 100px;
+    margin-bottom: 10px;
 }

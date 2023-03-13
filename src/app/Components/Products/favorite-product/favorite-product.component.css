@@ -1,9 +1,9 @@
 .product{
-  position: relative;
-    margin-left:15px;
+    position: relative;
+    margin-left:25px;
     margin-top:15px;
     margin:5px;
-    width: 15.5rem;
+    width: 14rem;
     height:20rem;
     border: 1px solid rgb(212, 157, 157);
     border-radius: 10px;
@@ -19,7 +19,7 @@
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-y:hidden;
-    inline-size: 100%;
+    inline-size: 90%;
   }
   .product-price{
     color: rgb(30, 30, 30);
@@ -35,10 +35,11 @@
   .col_2{
     width: 20%;
     flex: 0 0 auto;
+    margin-left: 45px;
   }
   .product-name{
     height: 35px;
-    width: 220px;
+    width: 200px;
     color:rgba(30, 30, 30,0.8);
     font-size:12px!important;
     font-weight:500;

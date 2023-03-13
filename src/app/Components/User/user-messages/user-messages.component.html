@@ -1,0 +1,34 @@
+<!-- <div *ngFor="let c of contacts">
+{{c.name}}
+{{c.email}}
+{{c.subject}}
+{{c.description}}
+</div> -->
+<div class="page-cap">
+ <div class="row body">
+    <div class="col-3">
+        <app-user-account-sidebar></app-user-account-sidebar>
+    </div>
+    <div class="col-9">
+        <div><h6 id="cap-title" class="light-cap">Mesajlarım</h6></div>
+         <div id="cap" class="light-cap">
+            <div id="message-cap">
+               <div *ngFor="let c of contacts" class="message">
+                  <div class="message_subject">
+                     <span class="main-color">Konu: </span><p>{{c.subject}}</p>
+                  </div>
+                  <div class="message_email">
+                     <span class="main-color">E-Mail: </span>{{c.email}}
+                  </div>
+                  <div class="message_description">
+                    <p>{{c.description}}</p>
+                  </div>
+                  <div>
+                    <img id="message_delete-icon" [src]="this.deleteUrl"   appDelete [entity]="'contact'" [productId]="getContactId(c.id)">
+                  </div>
+               </div>
+            </div>
+         </div>
+    </div>
+ </div>
+</div>

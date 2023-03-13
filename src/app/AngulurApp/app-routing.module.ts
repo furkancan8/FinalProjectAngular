@@ -17,6 +17,7 @@ import { BasketComponent } from '../Components/Navbar/basket/basket.component';
 import { CategoryPageComponent } from '../Components/Products/category-page/category-page.component';
 import { FavoriteProductComponent } from '../Components/Products/favorite-product/favorite-product.component';
 import { ProductPageComponent } from '../Components/Products/product-page/product-page.component';
+import { UserMessagesComponent } from '../Components/User/user-messages/user-messages.component';
 //dizideki routler tanımlanır
 const routes: Routes = [
   {path:"",pathMatch:"full",component:ProductComponent},//pathmatch=anasayfa için verilir
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path:"userOrder",component:UserOrdersComponent},
   {path:"userComment",component:UserCommentComponent},
   {path:"userFavorite",component:FavoriteProductComponent},
+  {path:"userMessage",component:UserMessagesComponent},
 
 ];
 //projeye dahil edilir
