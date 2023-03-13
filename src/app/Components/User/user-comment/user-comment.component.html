@@ -1,4 +1,15 @@
-<div *ngFor="let u of userComment">
- {{u.commentt}}
- {{u.dateTime}}
+<div class="body row">
+    <div class="col-3">
+     <app-user-account-sidebar></app-user-account-sidebar>
+    </div>
+    <div class="col-9">
+        <div><h3>Yorumlar</h3></div>
+        <div *ngFor="let u of userComment">
+
+        </div>
+    </div>
 </div>
+{{u.commentt}}
+            {{u.dateTime}}
+            {{u.like}}
+            {{u.image}}
