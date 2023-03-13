@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/User/user.service';
   styleUrls: ['./favorite-product.component.css']
 })
 export class FavoriteProductComponent implements OnInit{
+  id=localStorage.getItem("i_u");
+  userId=parseInt(this.id);
   filterText:string="";
   userFavoriteProduct:Product[]=[]
   userFavorite:Favorite[]=[]
@@ -22,7 +24,7 @@ export class FavoriteProductComponent implements OnInit{
 
   }
   ngOnInit(): void {
-   this.getUserFavoriteById(3)
+   this.getUserFavoriteById(this.userId)
   }
   getUserFavoriteById(userId:number)
   {
@@ -42,17 +44,16 @@ export class FavoriteProductComponent implements OnInit{
     let url:string = "https://localhost:44331/Uploads/Images/star-"+startValue+".png" ;
     return url;
   }
-  deleteFavoriteProduct(id:number)
+  deleteFavoriteProduct(productId:number)
   {
     this.userFavorite.forEach(element => {
-      if(element.productId==id)
+      if(element.productId==productId)
       {
         this.favoriteService.deleteFavoriteUser(element.id).subscribe(res=>{
-          console.log(res.message)
         })
       }
     });
-   const deleteProductIndex=this.userFavoriteProduct.findIndex(i=>i.productId==id)//metodu araştır
+   const deleteProductIndex=this.userFavoriteProduct.findIndex(i=>i.productId==productId)//metodu araştır
     this.userFavoriteProduct.splice(deleteProductIndex,1);//metodu iyice araştır ögren,slice da dahil
   }
   IsProductDiscount(product:Product)

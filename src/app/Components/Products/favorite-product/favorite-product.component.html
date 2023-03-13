@@ -1,34 +1,40 @@
-<div id="favorite-cap">
-    <img id="heart-icon" [src]="this.heartFavoriteIcon">
-    <h1 id="favorite">Favoriler</h1>
-</div>
+<div class="row body">
+ <div class="col-3">
+  <app-user-account-sidebar></app-user-account-sidebar>
+ </div>
+ <div class="col-9">
+    <div id="favorite-cap">
+      <img id="heart-icon" [src]="this.heartFavoriteIcon">
+      <h1 id="favorite">Favoriler</h1>
+    </div>
 
-<div class="latest-products">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="section-heading">
+   <div class="latest-products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+            </div>
           </div>
+         <div class="row">
+          <div class="col_2"*ngFor="let product of userFavoriteProduct |filterPipe:filterText">
+           <div class="product" id="first-product">
+            <div id="cargo-icon-cap">
+              <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
+              <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
+          </div>
+            <button (click)="deleteFavoriteProduct(product.productId)" type="button" class="close custom-modal-close-button" >&times;</button>
+            <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
+             <img [src]="this.imageUrl+product.imagePath" class="product-img">
+             <div class="product-name default-font">{{product.productName |uppercase}}</div>
+             <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
+             <div [ngClass]="IsProductDiscount(product)" class="product-price"><h6>{{product.unitPrice}} TL</h6></div>
+             <div *ngIf="product.discount>0" class="product-price price-discount"><h6>{{product.unitPrice |discount:product.discount}} TL</h6></div>
+            </a>
+          </div>
+          </div>
+         </div>
         </div>
-       <div class="row">
-        <div class="col_2"*ngFor="let product of userFavoriteProduct |filterPipe:filterText">
-         <div class="product" id="first-product">
-          <div id="cargo-icon-cap">
-            <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
-            <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
-        </div>
-          <button (click)="deleteFavoriteProduct(product.productId)" type="button" class="close custom-modal-close-button" >&times;</button>
-          <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
-           <img [src]="this.imageUrl+product.imagePath" class="product-img">
-           <div class="product-name default-font">{{product.productName |uppercase}}</div>
-           <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
-           <div [ngClass]="IsProductDiscount(product)" class="product-price"><h6>{{product.unitPrice}} TL</h6></div>
-           <div *ngIf="product.discount>0" class="product-price price-discount"><h6>{{product.unitPrice |discount:product.discount}} TL</h6></div>
-          </a>
-        </div>
-        </div>
-       </div>
       </div>
     </div>
   </div>
-
+</div>

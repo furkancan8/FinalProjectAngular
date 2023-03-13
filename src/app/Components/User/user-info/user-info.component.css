@@ -7,14 +7,16 @@
     box-shadow: -5px 8px 9px -1px rgba(140, 138, 138, 0.3), 0px -8px 9px -1px rgba(140, 138, 138, 0.3);
 }
 #user-info-h{
+    display: inline-block;
     margin-top: 25px;
-    color:var(--main-color)
+    padding-right: 25px;
+    color:var(--main-color);
 }
 .title{
     color:var(--main-color)
 }
 #login-cap{
- width: 100%;
+ width: 87%;
  height: 90vh;
 }
 .forms{
@@ -46,7 +48,7 @@
 margin-bottom: 25px;
 }
 #second-input-section input{
-width: 95%;
+width: 97%;
 }
 #third-input-section{
 margin-bottom: 35px;
@@ -55,7 +57,7 @@ margin-bottom: 35px;
 width: 60%;
 }
 #fourth-input-section{
-    margin-bottom: 25px;
+ margin-bottom: 25px;
 }
 .date{
 padding: 0!important;
@@ -97,7 +99,7 @@ padding-left:10px!important;
 }
 /* PASSWORD--------------------  */
 #password-update-cap{
-border: 1px rgb(188, 188, 188) solid;
+    border: 1px rgb(188, 188, 188) solid;
     border-radius: 5px;
     padding: 25px;
     margin-top: 25px;

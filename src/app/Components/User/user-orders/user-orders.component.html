@@ -1,7 +1,14 @@
-<div *ngFor="let o of orders">
-  orderId:{{o.orderId}}
-  productId{{o.productId}}
-  unitprice:{{o.unitPrice}}
-  quantity:{{o.quantity}}
-  userId:{{o.userId}}
+<div class="body row">
+  <div class="col-3">
+   <app-user-account-sidebar></app-user-account-sidebar>
+  </div>
+  <div class="col-9">
+    <div *ngFor="let o of orders">
+      orderId:{{o.orderId}}
+      productId{{o.productId}}
+      unitprice:{{o.unitPrice}}
+      quantity:{{o.quantity}}
+      userId:{{o.userId}}
+    </div>
+  </div>
 </div>

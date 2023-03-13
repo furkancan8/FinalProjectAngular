@@ -1,0 +1,42 @@
+#cap{
+    height:85vh;
+
+}
+#cap-title{
+  font-size: 20px!important;
+  color: var(--main-color)!important;
+}
+.message{
+  position: relative;
+  border: 1px rgb(169, 169, 169) solid;
+  border-radius: 5px;
+  background-color: rgb(249, 249, 249);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.message span{
+  font-weight: 500;
+}
+.message_subject{
+  display: inline;
+
+}
+.message_subject p{
+ display: inline-block;
+ font-size: 16px!important;
+}
+.message_email{
+   display: inline-block;
+   margin-left: 500px;
+}
+.message_description{
+  margin-top: 10px!important;
+}
+#message_delete-icon{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}

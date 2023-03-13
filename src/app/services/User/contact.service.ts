@@ -10,8 +10,9 @@ import { ResponseModel } from '../../models/responseModel';
 })
 export class ContactService {
 
-  apiUrl="https://localhost:44331/api/contacts/";
+  apiUrl="https://localhost:44331/api/contact/";
   constructor(private httpClient:HttpClient) { }
+
   getContact():Observable<ListResponseModel<Contact>>
   {
     let newPath=this.apiUrl+"getall"
@@ -21,5 +22,15 @@ export class ContactService {
   {
    let newPath=this.apiUrl+"add";
    return this.httpClient.post<ResponseModel>(newPath,contact)
+  }
+  getUserContact(userId:number):Observable<ListResponseModel<Contact>>
+  {
+    let newPath=this.apiUrl+"getuserid?userId="+userId;
+    return this.httpClient.get<ListResponseModel<Contact>>(newPath);
+  }
+  deleteContact(contactId:number):Observable<ResponseModel>
+  {
+    let newPath=this.apiUrl+"delete?contactId="+contactId;
+    return this.httpClient.delete<ResponseModel>(newPath);
   }
 }
