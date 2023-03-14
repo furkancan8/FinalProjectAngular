@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { Comment } from 'src/app/models/Product/comment';
+import { Product } from 'src/app/models/Product/product';
 import { CommentService } from 'src/app/services/Product/comment.service';
+import { ProductService } from 'src/app/services/Product/product.service';
 
 @Component({
   selector: 'app-user-comment',
@@ -11,7 +13,12 @@ export class UserCommentComponent implements OnInit{
   userComment:Comment[]=[]
   id=localStorage.getItem("i_u")
   userId=parseInt(this.id);
-  constructor(private commentService:CommentService) {
+  product:Product[]=[]
+  products:Product[]=[]
+  freeCargo:string="https://localhost:44331/Uploads/Images/kargo-bedava.png"
+  fastCargo:string="https://localhost:44331/Uploads/Images/hızlı-kargo.png"
+  imageUrl:string="https://localhost:44331/Uploads/Images/";
+  constructor(private commentService:CommentService,private productService:ProductService) {
 
   }
   ngOnInit(): void {
@@ -21,6 +28,19 @@ export class UserCommentComponent implements OnInit{
   {
     this.commentService.getUserOfComment(userId).subscribe(res=>{
      this.userComment=res.data
+     res.data.forEach(c => {
+      this.getProductDetails(c.productId);
+     });
     })
+  }
+  getProductDetails(productId:number)
+  {
+    this.productService.getProductDetails(productId).subscribe(res=>{
+      this.product.push(res.data)
+    })
+  }
+  getStartImage(startValue:number){
+    let url:string = "https://localhost:44331/Uploads/Images/star-"+startValue+".png" ;
+    return url;
   }
 }

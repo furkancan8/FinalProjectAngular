@@ -3,12 +3,41 @@
    <app-user-account-sidebar></app-user-account-sidebar>
   </div>
   <div class="col-9">
-    <div *ngFor="let o of orders">
+   <div id="title-cap">
+    <h4>Siparişlerim</h4>
+    <div >
+      <input (keydown.enter)="submit()" [(ngModel)]="filterText" id="filterText"  placeholder="Aradığınız ürünü buraya yazınız">
+      <button routerLink="/product" #productLink style="display: none;"></button>
+    </div>
+   </div>
+   <div id="orders-cap">
+      <div class="order" *ngFor="let o of orders">
+        <div class="order-navbar">
+          <div>
+             <h6>Sipariş tarihi</h6>
+             <p>{{o}}</p>
+          </div>
+        </div>
+        <div class="order-main">
+
+        </div>
+      </div>
+   </div>
+
+
+
+
+
+
+
+
+
+    <!-- <div *ngFor="let o of orders">
       orderId:{{o.orderId}}
       productId{{o.productId}}
       unitprice:{{o.unitPrice}}
       quantity:{{o.quantity}}
       userId:{{o.userId}}
-    </div>
+    </div> -->
   </div>
 </div>

@@ -1,15 +1,23 @@
-<div class="body row">
+<div class="page-cap">
+ <div class="body row">
     <div class="col-3">
      <app-user-account-sidebar></app-user-account-sidebar>
     </div>
     <div class="col-9">
-        <div><h3>Yorumlar</h3></div>
-        <div *ngFor="let u of userComment">
-
+       <div><h3>Yorumlar</h3></div>
+       <div class="row light-cap" id="cap">
+        <div class="col-6" *ngFor="let u of userComment">
+           <div *ngFor="let p of product">
+            <div class="product" *ngIf="u.productId==p.productId">
+                <a  routerLink="/products/{{p.productId}}" (click)="getProductDetails(p.productId)">
+                  <div class="product_img-div"><img [src]="this.imageUrl+p.imagePath" class="product-img"></div>
+                    <div class="product-name default-font">{{p.productName |uppercase}}</div>
+                    <div><img [src]="getStartImage(p.startCount)" class="product-starts"> <span class="product-reviews">{{p.reviews}}</span></div>
+                    <div class="product-user-comment">{{u.commentt}}</div>
+                </a>
+           </div>
         </div>
+       </div>
     </div>
+ </div>
 </div>
-{{u.commentt}}
-            {{u.dateTime}}
-            {{u.like}}
-            {{u.image}}

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderDetails } from 'src/app/models/Product/orderDetails';
 import { OrderdetailsService } from 'src/app/services/Product/orderdetails.service';
 
@@ -8,10 +9,12 @@ import { OrderdetailsService } from 'src/app/services/Product/orderdetails.servi
   styleUrls: ['./user-orders.component.css']
 })
 export class UserOrdersComponent implements OnInit{
+  @ViewChild('productLink',{static:false}) productLink:ElementRef;
  localUserId=localStorage.getItem("i_u");
  userId=parseInt(this.localUserId);
  orders:OrderDetails[]=[]
-constructor(private orderService:OrderdetailsService) { }
+ filterText:string="";
+constructor(private orderService:OrderdetailsService,private router:Router) { }
 
 ngOnInit(): void {
   this.getUserOrders();
@@ -20,5 +23,11 @@ ngOnInit(): void {
     this.orderService.getUserOrder(this.userId).subscribe(sub=>{
       this.orders=sub.data
     })
+  }
+  submit()
+  {
+    const kelimeler=[this.filterText.split(' ').join('+')]
+    this.productLink.nativeElement.click();
+    this.router.navigate(['/product'], { queryParams: { src: JSON.stringify(kelimeler) } });
   }
 }
