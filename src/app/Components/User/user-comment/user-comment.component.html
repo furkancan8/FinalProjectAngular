@@ -15,6 +15,9 @@
                     <div><img [src]="getStartImage(p.startCount)" class="product-starts"> <span class="product-reviews">{{p.reviews}}</span></div>
                     <div class="product-user-comment">{{u.commentt}}</div>
                 </a>
+                <button appDelete [productId]="u.id" [entity]="'comment'">
+                  <img class="delte-icon" [src]="this.deleteIcon">
+                </button>
            </div>
         </div>
        </div>

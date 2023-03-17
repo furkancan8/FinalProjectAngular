@@ -1,4 +1,5 @@
 import { Directive,Input,ElementRef, HostListener } from '@angular/core';
+import { CommentService } from '../services/Product/comment.service';
 import { AdminService } from '../services/User/admin.service';
 import { BasketService } from '../services/User/basket.service';
 import { ContactService } from '../services/User/contact.service';
@@ -12,7 +13,7 @@ export class DeleteDirective {
   //RENDERER =html etiketini manipüle eder
 
   constructor(private element:ElementRef,private adminService:AdminService,private basketService:BasketService,
-    private contactService:ContactService) { }
+    private contactService:ContactService,private commentService:CommentService) { }
 
   @Input() productId:number
   @Input() entity:string;
@@ -36,10 +37,14 @@ export class DeleteDirective {
        })
       }else if(this.entity=="contact")
       {
-        console.log(this.productId)
         this.contactService.deleteContact(this.productId).subscribe(res=>{
           console.log(res.success)
         })
+      }else if(this.entity=="comment")
+      {
+         this.commentService.delete(this.productId).subscribe(res=>{
+          console.log(res.success)
+         })
       }
   }
 }

@@ -1,22 +1,22 @@
- <header>
-  <div class="row">
-      <div class="col-2">
-        <h1>Trendyo</h1>
+ <header class="body">
+  <div class="navi">
+      <div id="logo">
+        <a routerLink="/products"><h1>Trendyo</h1></a>
       </div>
-      <div class="col-5" id="search-input">
+      <div id="search-input">
           <div >
             <input (keydown.enter)="submit()" [(ngModel)]="filterText" id="filterText"  placeholder="Aradığınız ürünü veya kategoriyi buraya yazınız">
             <button routerLink="/product" #productLink style="display: none;"></button>
           </div>
       </div>
-      <div class="col-2" id="basket"><a routerLink="/basket">Sepet</a></div>
-      <div class="col-2" (mouseenter)="changeImg()" (mouseleave)="resetImg()">
+      <div  id="basket"><a routerLink="/basket">Sepet</a></div>
+      <div id="favorite" (mouseenter)="changeImg()" (mouseleave)="resetImg()">
         <a routerLink="/userFavorite">
         <img id="heart-icon"  [src]="this.defaultHeartFavorite">
-        <h1 id="favorite">Favoriler</h1>
+        <span id="favorite">Favoriler</span>
       </a>
       </div>
-      <div class="col-1">
+      <div id="account">
         <div class="nav-item dropdown" *ngIf="IsActive==false">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Giriş Yap</a>
           <ul class="dropdown-menu">

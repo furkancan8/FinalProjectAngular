@@ -102,3 +102,12 @@ display: flex;
 position: absolute    ;
 flex-direction: column;
 }
+
+#home-page-information-cap div{
+ margin-bottom: 30px;
+ border-bottom: 1px rgb(185, 185, 185) solid;
+}
+#home-page-information-cap h4{
+  color:var(--title-color);
+  margin-left: 5px;
+}

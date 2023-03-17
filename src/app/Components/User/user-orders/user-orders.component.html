@@ -1,3 +1,4 @@
+<div class="page-cap" id="cap">
 <div class="body row">
   <div class="col-3">
    <app-user-account-sidebar></app-user-account-sidebar>
@@ -12,19 +13,43 @@
    </div>
    <div id="orders-cap">
       <div class="order" *ngFor="let o of orders">
-        <div class="order-navbar">
-          <div>
-             <h6>Sipariş tarihi</h6>
-             <p>{{o}}</p>
+        <div class="order-navbar light-cap">
+          <div class="order-date">
+            <h6>Sipariş Tarihi: </h6>
+            <span>{{o.orderDate}}</span>
+          </div>
+          <div class="order-customer">
+            <h6>Alıcı: </h6>
+            <span>{{this.userName}}</span>
           </div>
         </div>
         <div class="order-main">
-
+           <div *ngFor="let p of products">
+            <div *ngIf="p.productId === o.productId">
+            <div class="product">
+              <div class="product-order-result-cap">
+                <h6 class="product-order-result">Sipariş Tamamlandı:</h6>
+                <span>{{o.requiredDate}}</span>
+              </div>
+              <div class="product-price">
+                  <h6>Ürünün Fiyatı:</h6>
+                  <span>{{p.unitPrice}}</span>
+              </div>
+              <div>
+                <img class="product-img" [src]="this.imageUrl+p.imagePath">
+              </div>
+            </div>
+           </div>
+           </div>
         </div>
       </div>
    </div>
+<!--
+   <div *ngFor="let p of products">
+    <div *ngIf="o.productId==p.productId">
 
-
+    </div>
+   </div> -->
 
 
 
@@ -40,4 +65,5 @@
       userId:{{o.userId}}
     </div> -->
   </div>
+</div>
 </div>

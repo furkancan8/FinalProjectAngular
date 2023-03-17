@@ -1,0 +1,28 @@
+#navi-cap{
+  width: 100%;
+  height: 51vh;
+  background-color:rgba(0, 0, 0, 0.9) ;
+  color: white;
+}
+#navi-flex{
+    display: flex;
+    margin-left: 100px;
+}
+.navi-child{
+    margin-top:101px;
+    margin-left: 141px;
+}
+.navi-child h4{
+    margin-bottom: 35px;
+}
+.navi-child p{
+    cursor: pointer;
+}
+
+.social-icon{
+    background-color: white;
+    border-radius: 5px;
+    padding: 1px;
+    margin-bottom: 5px;
+    cursor:pointer;
+}

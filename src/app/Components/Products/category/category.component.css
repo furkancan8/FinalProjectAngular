@@ -1,13 +1,7 @@
-.category{
-  width: auto;
-  flex-shrink: 0;
-  flex-grow: 1;
-  cursor: pointer;
-}
 #category-cap{
  border-bottom: 1px solid rgb(217, 217, 217);
   border-radius: 5px;
-  margin-top:10px;
+  margin-top:5px;
 }
 #category-cap_ul{
   --bs-gutter-x:0!important;
@@ -23,6 +17,12 @@
  }
 ul{
   font-weight: 600;
+}
+.category{
+  width: auto;
+  flex-shrink: 0;
+  flex-grow: 1;
+  cursor: pointer;
 }
 #side-category-cap{
   position: relative;
