@@ -10,7 +10,7 @@ export interface Product{
     sellCount:number;
     startCount:number;
     discount:number;
-    imagePath:number;
+    imagePath:string;
     freeCargo:boolean;
     fastCargo:boolean;
 }

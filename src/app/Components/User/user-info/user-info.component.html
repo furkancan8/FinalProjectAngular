@@ -7,7 +7,8 @@
     <h4 id="user-info-h">Kullanıcı bilgileri</h4>
   </div>
   <div class="row">
-    <div id="user-info" class="col-6" *ngFor="let u of UserDetails">
+    <div id="user-info" class="col-6">
+      <div *ngFor="let u of UserDetails">
     <form [formGroup]="this.updateFormGroup">
       <h6 class="title">Üye Bilgileri</h6>
        <div id="first-input-section" class="row">
@@ -64,6 +65,7 @@
        </div>
     </form>
     </div>
+   </div>
     <div class="col-6" id="password-update-cap">
      <h6 class="title mb-3">Şifre Güncelle</h6>
       <div id="now-password">

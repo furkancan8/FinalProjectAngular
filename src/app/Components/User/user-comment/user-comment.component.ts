@@ -18,6 +18,7 @@ export class UserCommentComponent implements OnInit{
   freeCargo:string="https://localhost:44331/Uploads/Images/kargo-bedava.png"
   fastCargo:string="https://localhost:44331/Uploads/Images/hızlı-kargo.png"
   imageUrl:string="https://localhost:44331/Uploads/Images/";
+  deleteIcon:string="https://localhost:44331/Uploads/Images/delete.png";
   constructor(private commentService:CommentService,private productService:ProductService) {
 
   }

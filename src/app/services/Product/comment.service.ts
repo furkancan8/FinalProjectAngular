@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ResponseModel } from 'src/app/models/responseModel';
 import { ListResponseModel } from '../../models/listResponseModel';
 import { Comment } from '../../models/Product/comment';
 
@@ -20,5 +21,9 @@ export class CommentService {
   {
     var newPath=this.apiUrl+"getusercomment?userId="+userId;
     return this.httpClient.get<ListResponseModel<Comment>>(newPath)
+  }
+  delete(commentId:number):Observable<ResponseModel>
+  {
+    return this.httpClient.delete<ResponseModel>(this.apiUrl+"delete?commentId="+commentId);
   }
 }

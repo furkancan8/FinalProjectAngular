@@ -1,6 +1,12 @@
 header{
   margin-top:15px;
 }
+.navi{
+  display: flex;
+}
+#logo{
+  margin-right: 75px;
+}
 #search-input{
     margin-top:10px;
     height:35px;
@@ -10,6 +16,7 @@ input{
     border: 0;
     color: #2f2f2f;
     font-size: .8rem;
+    margin-right: 250px;
   }
   input[id="filterText"] {
     outline: 0;
@@ -25,6 +32,9 @@ input{
   }
 #basket{
   text-align: right;
+  margin-left: 250px;
+  margin-right: 50px;
+  margin-top: 15px;
 }
 #heart-icon{
   display: inline;
@@ -36,7 +46,15 @@ input{
   src: local("https://localhost:44331/Uploads/Images/heart-icon.png");
 }
 #favorite{
+  margin-top: 7px;
   margin-left:5px;
   font-size: 1rem;
   display: inline-block;
+}
+#account{
+  margin-left: 50px;
+  margin-top: 13px;
+}
+.mb-1{
+margin-top: 10px;
 }
