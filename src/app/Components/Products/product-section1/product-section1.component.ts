@@ -37,6 +37,9 @@ export class ProductSection1Component implements OnInit{
     let url:string = "https://localhost:44331/Uploads/Images/background-camera.jpg";
     return url;
   }
+  getProductDetails(product:number){
+    this.productService.getProductDetails(product);
+  }
   IsProductDiscount(product:Product)
   {
     if(product.discount>0)

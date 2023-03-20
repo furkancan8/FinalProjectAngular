@@ -9,6 +9,8 @@ import { CommentService } from 'src/app/services/Product/comment.service';
 import { ProductService } from 'src/app/services/Product/product.service';
 import { ProductImgService } from 'src/app/services/Product/product-img.service';
 import { ProductImg } from 'src/app/models/Product/productImg';
+import { Brand } from 'src/app/models/Product/brand';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,12 +19,19 @@ import { ProductImg } from 'src/app/models/Product/productImg';
   providers:[ProductService]
 })
 export class ProductDetailComponent implements OnInit{
+  id=localStorage.getItem("i_u");
+  userId=parseInt(this.id);
   products:Product[]=[]
   productImg:ProductImg[]=[]
   productComment:Comment[]=[]
-  productId:number
+  productOfBrand:Brand[]=[]
+  productId:number;
+  productid:number;
+  productBasketCount:number=1;
+  basketAddForm:FormGroup
+  imageUrl:string="https://localhost:44331/Uploads/Images/";
   constructor(private route:ActivatedRoute,private productservice:ProductService,private commentService:CommentService,
-    private productImgService:ProductImgService) {
+    private productImgService:ProductImgService,private formBuilder:FormBuilder) {
 
   }
   ngOnInit(): void {
@@ -31,11 +40,14 @@ export class ProductDetailComponent implements OnInit{
       this.getProductOfComment(params["productId"])
       this.getProductImage(params["productId"])
     })
+    this.createBasketAddForm()
   }
 
   getProductDetails(productId:number){
     this.productservice.getProductDetails(productId).subscribe(response=>{
       this.products.push(response.data)
+      this.getProductOfBrand(response.data.brandId)
+      console.log(response.data.brandId)
     })
   }
   getProductOfComment(productId:number)
@@ -55,8 +67,35 @@ export class ProductDetailComponent implements OnInit{
       console.log(res.data)
     })
   }
+  getProductId(productId:number)
+  {
+    this.productid=productId;
+  }
   getImageSource(productImage:string):string{
     let url:string = "https://localhost:44331/Uploads/Images/" + productImage;
     return url;
   }
+  getProductOfBrand(brandId:number)
+  {
+    this.productservice.getByIdBrand(brandId).subscribe(res=>{
+      this.productOfBrand=res.data
+      console.log(res.data)
+    })
+  }
+  upCount(){
+      this.productBasketCount+=1
+  }
+  downCount(){
+    if(this.productBasketCount!>1)
+    {
+      this.productBasketCount-=1
+    }
+  }
+  createBasketAddForm(){
+    this.basketAddForm=this.formBuilder.group({
+    userId:[this.userId,Validators.required],
+    productId:[this.productid,[Validators.required, Validators.pattern('^[0-9]+$')]],
+   })
+   this.basketAddForm.get('productId').setValue(this.productid);
+}
 }

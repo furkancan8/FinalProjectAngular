@@ -13,7 +13,7 @@
               <img *ngIf="product.freeCargo" class="product-cargo-icon" [src]="this.freeCargo">
               <img *ngIf="product.fastCargo" class="product-cargo-icon" [src]="this.fastCargo">
           </div>
-            <a>
+            <a  routerLink="/products/{{product.productId}}" (click)="getProductDetails(product.productId)">
               <img [src]="this.imageUrl+product.imagePath" class="product-img">
              <div class="product-p default-font"><p>{{product.productName}}</p></div>
              <div><img [src]="getStartImage(product.startCount)" class="product-starts"> <span class="product-reviews">{{product.reviews}}</span></div>
