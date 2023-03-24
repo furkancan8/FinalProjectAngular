@@ -3,6 +3,7 @@
   height: 51vh;
   background-color:rgba(0, 0, 0, 0.9) ;
   color: white;
+  margin-top: 50px;
 }
 #navi-flex{
     display: flex;

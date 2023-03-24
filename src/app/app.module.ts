@@ -39,6 +39,7 @@ import { HomePageSectionComponent } from './Components/Products/home-page-sectio
 import { UserAccountSidebarComponent } from './Components/User/user-account-sidebar/user-account-sidebar.component';
 import { UserMessagesComponent } from './Components/User/user-messages/user-messages.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { ForgetPasswordComponent } from './Components/User/forget-password/forget-password.component';
 @NgModule({
   //kendi projemizdeki componentler
   declarations: [
@@ -74,6 +75,7 @@ import { FooterComponent } from './Components/footer/footer.component';
     UserAccountSidebarComponent,
     UserMessagesComponent,
     FooterComponent,
+    ForgetPasswordComponent,
   ],
   //dışardan aldıgımız moduller
   imports: [
