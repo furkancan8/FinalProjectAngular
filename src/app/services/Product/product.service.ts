@@ -5,6 +5,7 @@ import { ListResponseModel } from '../../models/listResponseModel';
 import { Product } from '../../models/Product/product';
 import { ResponseModel } from '../../models/responseModel';
 import { SingleResponseModel } from '../../models/singleResponseModel';
+import { Brand } from 'src/app/models/Product/brand';
 
 
 @Injectable({
@@ -56,5 +57,10 @@ export class ProductService {
   {
     let newPath=this.apiUrl+"products/getveryreviewsproduct";
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
+  }
+  getByIdBrand(brandId:number):Observable<ListResponseModel<Brand>>
+  {
+    let newPath=this.apiUrl+"brand/getallbrandid?brandId="+brandId;
+    return this.httpClient.get<ListResponseModel<Brand>>(newPath);
   }
 }

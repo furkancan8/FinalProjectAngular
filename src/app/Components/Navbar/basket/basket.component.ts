@@ -18,9 +18,14 @@ export class BasketComponent implements OnInit{
   userId=parseInt(this.id)
   baskets:Basket[]=[]
   products:Product[]=[]
+  basketInProducts:number[]=[]
   basketId:number
   productid:number
   basketAddForm:FormGroup
+  imageUrl:string="https://localhost:44331/Uploads/Images/";
+  heartFavoriteIcon:string="https://localhost:44331/Uploads/Images/heart-favorite-red.png";
+  freeCargo:string="https://localhost:44331/Uploads/Images/kargo-bedava.png"
+  fastCargo:string="https://localhost:44331/Uploads/Images/hızlı-kargo.png"
   constructor(private basketService:BasketService,private productService:ProductService,private formsBuilder:FormBuilder) {}
 
  ngOnInit(): void {
@@ -32,20 +37,37 @@ export class BasketComponent implements OnInit{
  {
   this.basketService.getallUserBasket(userId).subscribe(res=>{
     this.baskets=res.data
-    if(this.baskets)
-    {
-      this.baskets.forEach(element => {
-      this.getProductById(element.productId)
-      });
-    }
+    console.log(this.baskets)
+
+      setTimeout(() => {
+        res.data.forEach(element => {
+          this.getProductById(element.productId)
+          });
+      }, 1000);
   })
  }
  getProductById(productId:number)
  {
-   this.productService.getProductDetails(productId).subscribe(res=>{
-    this.products.push(res.data)
-   })
+    this.productService.getProductDetails(productId).subscribe(res=>{
+      this.products.push(res.data)
+      console.log(this.products)
+     })
  }
+ getStartImage(startValue:number){
+  let url:string = "https://localhost:44331/Uploads/Images/star-"+startValue+".png" ;
+  return url;
+}
+getProductDetails(product:number){
+  this.productService.getProductDetails(product);
+}
+IsProductDiscount(product:Product)
+{
+  if(product.discount>0)
+  {
+    return "line-tag"
+  }
+  return ""
+}
  getInBasketProductId(productId:number)
   {
 

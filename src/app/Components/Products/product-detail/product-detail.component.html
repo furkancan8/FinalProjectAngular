@@ -1,13 +1,116 @@
-<div *ngFor="let p of products">
-   {{p.productName}}
-   {{p.quantityPerUnit}}
-   {{p.reviews}}
- </div>
-<div *ngFor="let p of productComment">
-  {{p.commentt}}
-  {{p.dateTime}}
-  {{p.image}}
+<div class="page-cap">
+<div class="body">
+  <div id="product-page" class="row">
+    <div class="col-6 mt-5">
+      <div *ngFor="let p of products"><img class="product-img" [src]="this.mainProductImg"></div>
+      <div id="images-cap">
+        <div *ngFor="let img of productImg">
+          <button class="image-btn" (click)="changeMainImage(this.imageUrl+img.imagePath)">
+          <img class="image" [src]="this.imageUrl+img.imagePath"></button>
+        </div>
+        <button *ngFor="let p of products" class="image-btn" (click)="changeMainImage(this.imageUrl+p.imagePath)">
+          <img  class="image" [src]="this.imageUrl+p.imagePath"></button>
+      </div>
+    </div>
+    <div class="col-6 page-cap" *ngFor="let p of products">
+      <div class="product-first-section">
+        <h6 class="product-name">{{p.productName}}</h6>
+        <div class="product-brand" *ngFor="let b of productOfBrand">{{b.name}}</div>
+        <div class="product-price-start">
+          <div class="product-price">{{p.unitPrice}} TL</div>
+          <div class="product-start-count">{{p.startCount}}</div>
+          <div class="product-start-cap"><img class="product-start" [src]="getStartImage(p.startCount)"></div>
+        </div>
+        <div class="product-reviews-top">{{p.reviews}} Degerlendirme</div>
+      </div>
+      <div class="product-second-section">
+        <div class="product-seller">
+         <span class="span">Satıcı:</span>
+         <span>{{p.seller}}</span>
+         <div class="product-reviews">
+          Ürün Yorumları: {{p.reviews}}
+         </div>
+        </div>
+      </div>
+      <div class="product-free-cargo-warning"><p>100 TL üzeri kargo bedava</p></div>
+      <div class="product-third-section">
+        <div class="basket-count">
+           <div (click)="downCount()" class="basket-count-icon">-</div>
+           <div class="basket-count-int">{{this.productBasketCount}}</div>
+           <div (click)="upCount()" class="basket-count-icon">+</div>
+        </div>
+        <div>
+          <form [formGroup]="this.basketAddForm">
+            <input type="hidden" id="productId" name="productId" value="{{p.productId}}">
+          </form>
+          <button (click)="getProductId(p.productId)"  appAdd [entityAddForm]="this.basketAddForm" [entity]="'basket'" class="btn-basket">Sepete ekle</button>
+        </div>
+       </div>
+       <div>
+       <div class="product-property">
+        <h6>Ürünün bazı özellikleri</h6>
+        <ul>
+          <li>Bu ürün Slazenger tarafından gönderilecektir</li>
+          <li>İncelemiş olduğunuz ürünün satış fiyatını satıcı belirlemektedir.</li>
+          <li>Slazenger Edt Erkek 125 ml Deo 150 ml Activesport Mavi</li>
+          <li>Bu üründen en fazla 10 adet sipariş verilebilir. 10 adetin üzerindeki siparişleri Trendyol iptal</li>
+        </ul>
+       </div>
+       </div>
+    </div>
+    <div class="product-comment">
+      <h3>Ürün Degerlendirme</h3>
+      <div>
+         <div *ngFor="let c of productComment" class="comment">
+           <div class="comment-date">
+            <span><img class="comment-star" [src]="getStartImage(c.startCount)"></span>
+            <span class="comment_date">{{c.dateTime}}</span>
+            <span class="comment-user-name">{{this.userName}}</span>
+           </div>
+           <div class="comment-p-cap">
+            <div class="comment-p">
+              <p>{{c.commentt}}</p>
+            </div>
+            <div class="comment-like">
+              <img [src]="this.likeUrl">
+              <p>Begen({{c.like}})</p>
+              <p class="comment-like_info">Bildir</p>
+           </div>
+         </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-property-section page-cap" *ngFor="let p of products">
+    <h3>Ürün Bilgisi</h3>
+      <div class="product-property_first-section">
+         <img class="product-property_img" [src]="this.imageUrl+p.imagePath">
+         <div>
+          <h4>{{p.productName}}</h4>
+          <ul>
+            <li>Bu üründen en fazla 10 adet sipariş verilebilir. 10 adetin üzerindeki siparişleri Trendyol iptal etme hakkını saklı tutar.</li>
+            <li>Kampanya fiyatından satılmak üzere 100 adetten fazla stok sunulmuştur.</li>
+            <li>Bir ürün, birden fazla satıcı tarafından satılabilir. Birden fazla satıcı tarafından satışa sunulan ürünlerin satıcıları ürün için belirledikleri fiyata, satıcı puanlarına, teslimat statülerine, ürünlerdeki promosyonlara, kargonun bedava olup olmamasına ve ürünlerin hızlı teslimat ile teslim edilip edilememesine, ürünlerin stok ve kategorileri bilgilerine göre sıralanmaktadır.</li>
+          </ul>
+         </div>
+      </div>
+      <div class="product-property_second-section">
+       <h3>Ürün Özellikleri</h3>
+        <div class="second-section_property">
+           <div class="second-section" *ngFor="let pp of productProperty">
+            <img [src]="this.imageUrl+pp.imageUrl1">
+            <p>{{pp.property}}</p>
+           </div>
+           <div class="second-section" *ngFor="let pp of productProperty">
+            <p>{{pp.property}}</p>
+            <img [src]="this.imageUrl+pp.imageUrl2">
+           </div>
+           <div class="second-section" *ngFor="let pp of productProperty">
+            <img [src]="this.imageUrl+pp.imageUrl3">
+            <p>{{pp.property}}</p>
+           </div>
+
+        </div>
+      </div>
+  </div>
 </div>
-<div *ngFor="let pImg of productImg">
-  <img [src]="getImageSource(pImg.imagePath)">
 </div>

@@ -6,4 +6,5 @@ export interface Comment{
     image:string,
     like:number,
     dateTime:Date,
+    startCount:number,
 }

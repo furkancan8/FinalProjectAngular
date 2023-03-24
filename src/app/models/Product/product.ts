@@ -1,6 +1,7 @@
 export interface Product{
     productId:number;
     categoryId:number;
+    brandId:number
     sideCategoryId:number
     productName:string;
     unitsInStock:number;
@@ -13,4 +14,5 @@ export interface Product{
     imagePath:string;
     freeCargo:boolean;
     fastCargo:boolean;
+    seller:string;
 }
